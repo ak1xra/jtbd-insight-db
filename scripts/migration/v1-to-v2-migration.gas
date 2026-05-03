@@ -1,0 +1,7 @@
+/**
+ * v1 → v2 プロパティマッピング移行スケルトン。
+ * マッピング表は SPECIFICATION.md / schemas/ を単一の正とする。
+ */
+function migrateV1ToV2() {
+  throw new Error('Not implemented: ドライラン→本番の2段階で実装してください。');
+}

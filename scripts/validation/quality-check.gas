@@ -1,0 +1,6 @@
+/**
+ * 必須プロパティ・選択肢値の範囲などを検証するスケルトン。
+ */
+function runQualityCheck() {
+  throw new Error('Not implemented: schemas/*.md をパースするか、設定をハードコードしないこと。');
+}

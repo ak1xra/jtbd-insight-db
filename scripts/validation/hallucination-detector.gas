@@ -1,0 +1,7 @@
+/**
+ * 出現回数の少ない固有名詞・数値パターンをフラグするなど、
+ * ヒューリスティックな「要人間確認」検出のスケルトン。
+ */
+function runHallucinationDetector() {
+  throw new Error('Not implemented: 誤検知と見逃しのトレードオフをコメントに明記すること。');
+}

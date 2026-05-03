@@ -1,0 +1,7 @@
+/**
+ * v1 Insight DB（またはエクスポート対象）のバックアップ用スケルトン。
+ * 実装: スプレッドシートID・シート名・Notionトークンは PropertiesService に格納すること。
+ */
+function backupV1() {
+  throw new Error('Not implemented: 環境に合わせて実装してください。');
+}
