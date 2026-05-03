@@ -10,18 +10,18 @@ _**User**_
 
 ---
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 I will examine all files in the repository to ensure consistency, verify data integrity, and identify any contradictions.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 リポジトリ全体を調査し、ドキュメント・設定・コード間の整合性を確認します。
 
 
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="search" data-tool-name="glob_file_search">
 <details>
@@ -80,7 +80,7 @@ Directory: **/Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db** (4
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/README.md</summary>
@@ -93,7 +93,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="search" data-tool-name="glob_file_search">
 <details>
@@ -109,7 +109,7 @@ Directory: **/Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db** (0
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="search" data-tool-name="glob_file_search">
 <details>
@@ -125,7 +125,7 @@ Directory: **/Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db** (0
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/SPECIFICATION.md</summary>
@@ -138,7 +138,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/insight-db-schema.md</summary>
@@ -151,7 +151,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/property-definitions.md</summary>
@@ -164,7 +164,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 I've identified multiple issues:
@@ -208,7 +208,7 @@ However, property-definitions lists the input flow as: , , AI, job/, .
 
 This creates a contradiction between SPEC 7.1 and property-definitions regarding the order of AI autofill and . The SPEC indicates AI should come before , while property-definitions places AI after . Additionally, the order of job and = differs between the two sources.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/operations/input-workflow.md</summary>
@@ -221,7 +221,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/governance/forbidden-actions.md</summary>
@@ -234,7 +234,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/relations.md</summary>
@@ -247,7 +247,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 Key findings:
@@ -256,7 +256,7 @@ Key findings:
 - forbidden-actions.md uses "" while SPEC uses ` = `, indicating differing terminology rather than contradictions.  
 - relations.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/operations/review-workflow.md</summary>
@@ -269,7 +269,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/scripts/README.md</summary>
@@ -282,7 +282,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The scripts/README file indicates that the migration backup is labeled as "v1". The migration backup file is correctly labeled as "v1" and located at `scripts/migration/backup-v1.gas`, which aligns with the relative path shown in the table from `scripts/README.md`.
@@ -290,7 +290,7 @@ The scripts/README file indicates that the migration backup is labeled as "v1". 
 - The `input-workflow` is outdated compared to the SPEC.
 - There's a conflict in `relations.md`: "insight  job " is marked as NG, while the SPEC requires creating entries and filling data before connecting jobs at step 7.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 リポジトリ内の主要ドキュメント（`README.md`、`SPECIFICATION.md`、`schemas/*`、`docs/operations/*`、`docs/governance/*` など）を突き合わせました。結果は次のとおりです。
 
@@ -1113,7 +1113,7 @@ AK1RA の判断が必要：
 
 ---
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The user requests implementation of comprehensive changes to the jtbd-insight-db repository according to a detailed task specification. 1. Create CHANGELOG.md with badge/version history links in README
@@ -1142,13 +1142,13 @@ Update property-definitions.md to align with SPEC order and Human-in-the-Point p
 - Address Terminology discrepancies between forbidden-actions and .
 - Review and decide on LICENSE file: either rename LICENCE.md to LICENSE or update README to reference LICENCE.md. The user explicitly requested adding a LICENSE link and creating CHANGELOG.md. The LICENSE file should be named without an extension (e.g., LICENSE instead of LICENCE.md) to follow standard conventions. If LICENCE.md exists and contains license text, it should be renamed to LICENSE. If LICENSE already exists, no action is needed. The README must link to the LICENSE file properly. A CHANGELOG.md file needs to be created with appropriate version history and badges.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 実装を進めます。現状のファイルを読み、タスクに沿って一括で更新します。
 
 
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/README.md</summary>
@@ -1161,7 +1161,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/LICENCE.md</summary>
@@ -1174,7 +1174,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/SPECIFICATION.md</summary>
@@ -1187,7 +1187,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/insight-db-schema.md</summary>
@@ -1200,7 +1200,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/insight-db-schema.md</summary>
@@ -1213,7 +1213,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 I need to read additional files related to the SPECIFICATION document. I need to review additional files including rest.md (section 5.2), property-definitions.md (sections 8, 13, input order), select-options.md, forces.md, relations.md, and forbidden-actions.md.
@@ -1223,7 +1223,7 @@ I also need to update insight-db-schema.md by:
 - Adding "Archive / historical" heading with disclaimer before v1.0 archive block
 - Aligning " v2.0" section with SPEC 7.1 to resolve contradiction</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/select-options.md</summary>
@@ -1236,7 +1236,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/ai-prompts/forces.md</summary>
@@ -1249,7 +1249,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/relations.md</summary>
@@ -1262,7 +1262,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/property-definitions.md</summary>
@@ -1275,7 +1275,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/SPECIFICATION.md</summary>
@@ -1288,12 +1288,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 I need to read the Forces section in select-options.md starting from line 118.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/select-options.md</summary>
@@ -1306,7 +1306,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/ai-prompts/insight-name.md</summary>
@@ -1319,7 +1319,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/governance/forbidden-actions.md</summary>
@@ -1332,7 +1332,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 I'll implement a CHANGELOG. I'll create a CHANGELOG.md file following Keep a Changelog style with versions 2.0, 1.3, and 1.0.
@@ -1389,13 +1389,13 @@ Implement forces.md properly:
 - Keep existing content intact
 - Ensure proper structure and formatting</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 実装中: `CHANGELOG.md` と `LICENSE` を追加し、関連ドキュメントを一括更新します。
 
 
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1410,7 +1410,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1425,7 +1425,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1440,7 +1440,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 README.md will be completely rewritten to improve accessibility, include a comprehensive property table, use plain language, provide link context, and reduce emoji in headings while maintaining some for scanability. Then update SPECIFICATION files including relations, property-definitions, select-options, forces.md, input-workflow, insight-db-schema, and forbidden-actions.
@@ -1483,7 +1483,7 @@ Change v1.0 header to:
 
 > **v2.0**  **2026-05-03  v1.0 ** [`SPECIFICATION</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1498,7 +1498,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1513,7 +1513,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1528,7 +1528,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1543,7 +1543,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1558,7 +1558,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1573,12 +1573,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 Add the Human-in-the-Point note as specified in 7.1 after the flow diagram, since the user requested a baseline version.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1593,7 +1593,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1608,7 +1608,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1623,7 +1623,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1638,7 +1638,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1653,12 +1653,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 Property definitions in 8 and 13 must follow the correct input order.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1673,7 +1673,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1688,7 +1688,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1703,7 +1703,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1718,7 +1718,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1733,7 +1733,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1748,7 +1748,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1763,12 +1763,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 forces.md - append Notion autofill section with rules</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1783,7 +1783,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1798,7 +1798,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1813,12 +1813,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 GitHub-style anchors for Japanese text may not align properly because SPEC headers automatically become anchors.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1833,7 +1833,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/ai-prompts/forces.md</summary>
@@ -1846,7 +1846,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1861,7 +1861,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1876,12 +1876,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 insight-db-schema.md has been updated with new schema changes.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1896,7 +1896,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1911,7 +1911,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1926,7 +1926,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1941,7 +1941,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -1956,12 +1956,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 Add SPEC glossary entry for DB Insight /  terminology - user asked  best proposal - I did forbidden-actions.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
 <details>
@@ -2018,7 +2018,7 @@ Status: **completed**
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -2033,12 +2033,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The archive section in schemas/insight-db-schema.md may have a broken heading hierarchy starting with "### v1."</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/insight-db-schema.md</summary>
@@ -2051,7 +2051,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 Add under the archive blockquote a note: "## " sections below are v1 snapshot continuation. Optional: prefix "## " with "### " to nest under archive. This would require changing many ## to ### in the whole archive region until "## v2". After the v0.1 change list, add the note: "`## ` `## v2.0`  **v1.0 **"
@@ -2060,7 +2060,7 @@ Change "## " to "#### v1.0 " for consistency.
 
 Find where  v2 starts and ensure it's correctly updated.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -2075,7 +2075,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 - Updated CHANGELOG to document new terminology
@@ -2090,7 +2090,7 @@ _**Agent (default)**_
 - Added CHANGELOG entry under Unreleased for terminology fix
 - Completed todo item as requested</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/insight-db-schema.md</summary>
@@ -2103,12 +2103,12 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The note indicates "archive until Forbidden Actions" but references  v2.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
@@ -2123,7 +2123,7 @@ _**Agent (default)**_
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 実装を反映しました。変更点の要約と、**用語（タスク8）の提案**だけ整理します。
 
@@ -2205,7 +2205,7 @@ _**User**_
 
 ---
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 To commit all local changes and push to the remote repository, use the following commands:
@@ -2213,13 +2213,13 @@ To commit all local changes and push to the remote repository, use the following
 - `git commit -m "Commit message"` to commit the changes
 - `git push` to push the changes to the remote repository</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 リポジトリの状態とリモート設定を確認してから、コミットとプッシュを実行します。
 
 
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git status && git remote -v && git branch -a</summary>
@@ -2272,12 +2272,12 @@ origin	https://github.com/ak1xra/surveyspec.git (push)
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The git root is located at `/Users/ak1ra/Documents/02`.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git rev-parse --show-toplevel && ls -la .git 2>/dev/null || echo "no .git in jtbd-insight-db"</summary>
@@ -2299,12 +2299,12 @@ no .git in jtbd-insight-db
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The git root is located at `/Users/ak1ra/Documents/02`.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git status projects/jtbd-insight-db/</summary>
@@ -2332,18 +2332,18 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The entire `projects/jtbd-insight-db/` directory is untracked and represents a new addition to the monorepo.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 モノレポ（`/Users/ak1ra/Documents/02.Area/Cursor`）内で `projects/jtbd-insight-db/` が未追跡のため、このディレクトリのみを追加してコミットし、現在のブランチへプッシュします。
 
 
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git add projects/jtbd-insight-db/ && git status projects/jtbd-insight-db/</summary>
@@ -2414,7 +2414,7 @@ Changes to be committed:
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "feat(jtbd-insight-db): add Notion insight DB spec and documentation
@@ -2487,7 +2487,7 @@ CHANGELOG, LICENSE, and Human-in-the-Point aligned workflows."
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git push origin 2026-03-22-fmw5</summary>
@@ -2509,7 +2509,7 @@ To https://github.com/ak1xra/surveyspec.git
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 作業完了です。
 
@@ -2540,7 +2540,7 @@ _**User**_
 
 ---
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 ## モノレポって何？
 
@@ -2578,18 +2578,18 @@ Gitthubのrepoに反映されていないのは、なぜ？
 
 ---
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The user wants to know why their modifications are not appearing in the GitHub repository.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 前回の作業内容から考えられる理由を整理します。
 
 
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git log -1 --oneline && git branch -vv | head -5 && git remote -v</summary>
@@ -2614,12 +2614,12 @@ origin	https://github.com/ak1xra/surveyspec.git (push)
 
 </details></tool-use>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The branch correctly tracks the origin at commit e942fcd.</details></think>
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 ローカルでは **すでに GitHub へは送れています**（`2026-03-22-fmw5` が `origin/2026-03-22-fmw5` と同じコミット `e942fcd` まで揃っている状態です）。
 
@@ -2662,7 +2662,7 @@ jtbd-insight-db⭕️
 
 ---
 
-_**Agent (default)**_
+_**Agent (claude-opus-4-6)**_
 
 <think><details><summary>Thought Process</summary>
 The user wants to push to the `jtbd-insight-db` repository, not `ak1xra/surveyspec`. So they need to either:
@@ -2670,4 +2670,1895 @@ The user wants to push to the `jtbd-insight-db` repository, not `ak1xra/surveysp
 - Set up a new remote or change remote to point to github.com/ak1xra/jtbd-insight-db
 - Push the jtbd-insight-db folder contents to that dedicated repo
 
-Options include creating a standalone git repo inside jtbd-insight-db with `git init`, adding remote `origin` pointing to jtbd-insight-db, and pushing the main branch.</details></think>
+Options include creating a standalone git repo inside jtbd-insight-db with `git init`, adding remote `origin` pointing to jtbd-insight-db, and pushing the main branch. The user wants to push the jtbd-insight-db folder to its own repository at https://github.com/ak1xra/jtbd-insight-db.git.
+
+To do this:
+- First check if jtbd-insight-db already has a .git directory
+- If not, initialize it as a standalone Git repository with `git init`
+- Add the remote origin pointing to the jtbd-insight-db repository
+- Push the main branch to that remote
+
+This approach avoids needing to use git subtree split or filter-repo unless the folder is part of a larger monorepo structure. The best approach is to initialize a new Git repository inside the `jtbd-insight-db` folder and push it to the dedicated remote. However, this creates complications if the parent monorepo already tracks this folder, as it may lead to nested repositories or submodule conflicts. 
+
+- Initialize the folder as a standalone Git repository
+- Set up the remote origin to point to the dedicated repository
+- Be cautious about potential conflicts with existing parent repository tracking
+
+This method avoids using complex tools like git subtree split or filter-repo unless dealing with a true monorepo structure. The clean approach for pushing only the `jtbd-insight-db` folder to its dedicated repository involves:
+
+- Initializing Git in the `jtbd-insight-db` folder
+- Adding a remote origin pointing to https://github.com/ak1xra/jtbd-insight-db.git
+- Committing and pushing the changes
+
+However, this requires careful handling in the parent monorepo:
+- Either remove `jtbd-insight-db` from the parent repository's tracking
+- Or add `projects/jtbd-insight-db/.git` to the parent's `.gitignore` and remove it from the index
+
+The user confirmed the target repository URL as https://github.com/ak1xra/jtbd-insight-db.git.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+`jtbd-insight-db` を独立リポジトリとして GitHub に push する手順を実行します。まずローカル状態を確認します。
+
+
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: test -d /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git && echo "has nested .git" || echo "no nested .git"; ls -la /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git 2>&1 | head -3</summary>
+
+```bash
+test -d /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git && echo "has nested .git" || echo "no nested .git"; ls -la /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git 2>&1 | head -3
+```
+
+```
+no nested .git
+ls: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git: No such file or directory
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+Error fetching URL, status code: 404
+
+<tool-use data-tool-type="unknown" data-tool-name="web_fetch"><details>
+<summary>Tool use: **web_fetch**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+The repository returned a 404 error, indicating it may not exist, be private and require authentication, or have an incorrect organization or username.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+GitHub の `ak1xra/jtbd-insight-db` は未ログインでは 404（未作成またはプライベート）でした。ローカルで独立リポジトリを初期化し、正しいリモート URL が分かれば push できる状態にします。
+
+
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git init -b main && git add -A && git status --short | head -20</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git init -b main && git add -A && git status --short | head -20
+```
+
+```
+Initialized empty Git repository in /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git/
+A  .specstory/.project.json
+A  .specstory/cli/config.toml
+A  .specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md
+A  .specstory/statistics.json
+A  .vscode/settings.json
+A  CHANGELOG.md
+A  LICENCE.md
+A  LICENSE
+A  README.md
+A  SPECIFICATION.md
+A  docs/ai-prompts/README.md
+A  docs/ai-prompts/forces.md
+A  docs/ai-prompts/insight-name.md
+A  docs/ai-prompts/journey-stage.md
+A  docs/ai-prompts/summary.md
+A  docs/architecture/data-flow.md
+A  docs/architecture/jtbd-forces-framework.md
+A  docs/architecture/overview.md
+A  docs/architecture/relation-diagram.md
+A  docs/governance/forbidden-actions.md
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git remote add origin https://github.com/ak1xra/jtbd-insight-db.git && git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "feat: initial insight DB specification and documentation
+
+Notion JTBD insight DB: SPECIFICATION, schemas, ops docs, LICENSE, CHANGELOG."</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git remote add origin https://github.com/ak1xra/jtbd-insight-db.git && git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "feat: initial insight DB specification and documentation
+
+Notion JTBD insight DB: SPECIFICATION, schemas, ops docs, LICENSE, CHANGELOG."
+```
+
+```
+[main (root-commit) ee720be] feat: initial insight DB specification and documentation
+ 45 files changed, 5686 insertions(+)
+ create mode 100644 .specstory/.project.json
+ create mode 100644 .specstory/cli/config.toml
+ create mode 100644 .specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md
+ create mode 100644 .specstory/statistics.json
+ create mode 100644 .vscode/settings.json
+ create mode 100644 CHANGELOG.md
+ create mode 100644 LICENCE.md
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 SPECIFICATION.md
+ create mode 100644 docs/ai-prompts/README.md
+ create mode 100644 docs/ai-prompts/forces.md
+ create mode 100644 docs/ai-prompts/insight-name.md
+ create mode 100644 docs/ai-prompts/journey-stage.md
+ create mode 100644 docs/ai-prompts/summary.md
+ create mode 100644 docs/architecture/data-flow.md
+ create mode 100644 docs/architecture/jtbd-forces-framework.md
+ create mode 100644 docs/architecture/overview.md
+ create mode 100644 docs/architecture/relation-diagram.md
+ create mode 100644 docs/governance/forbidden-actions.md
+ create mode 100644 docs/governance/human-in-the-point.md
+ create mode 100644 docs/governance/quality-criteria.md
+ create mode 100644 docs/integration/bmc-db-connection.md
+ create mode 100644 docs/integration/job-db-connection.md
+ create mode 100644 docs/integration/tag-dictionary-connection.md
+ create mode 100644 docs/integration/vpc-db-connection.md
+ create mode 100644 docs/operations/input-workflow.md
+ create mode 100644 docs/operations/maintenance.md
+ create mode 100644 docs/operations/migration-v1-to-v2.md
+ create mode 100644 docs/operations/review-workflow.md
+ create mode 100644 examples/bad-examples.md
+ create mode 100644 examples/edge-cases.md
+ create mode 100644 examples/good-examples.md
+ create mode 100644 schemas/insight-db-schema.md
+ create mode 100644 schemas/property-definitions.md
+ create mode 100644 schemas/relations.md
+ create mode 100644 schemas/select-options.md
+ create mode 100644 scripts/README.md
+ create mode 100644 scripts/migration/backup-v1.gas
+ create mode 100644 scripts/migration/v1-to-v2-migration.gas
+ create mode 100644 scripts/validation/hallucination-detector.gas
+ create mode 100644 scripts/validation/quality-check.gas
+ create mode 100644 templates/insight-entry-template.md
+ create mode 100644 templates/review-checklist.md
+ create mode 100644 templates/summary-format.md
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git push -u origin main</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git push -u origin main
+```
+
+```
+To https://github.com/ak1xra/jtbd-insight-db.git
+ ! [rejected]        main -&gt; main (fetch first)
+error: failed to push some refs to 'https://github.com/ak1xra/jtbd-insight-db.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+The repository exists and contains content on the main branch, including the README file and initial files.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+リモートに既存の `main` があります。取得して内容を確認します。
+
+
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git fetch origin && git log origin/main --oneline -5</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git fetch origin && git log origin/main --oneline -5
+```
+
+```
+From https://github.com/ak1xra/jtbd-insight-db
+ * [new branch]      main       -&gt; origin/main
+822d6d1 Initial commit
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+Remote repository currently contains only the initial commit with hash 822d6d1.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git pull origin main --allow-unrelated-histories --no-rebase -m "chore: merge GitHub initial commit with local specification tree"</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git pull origin main --allow-unrelated-histories --no-rebase -m "chore: merge GitHub initial commit with local specification tree"
+```
+
+```
+error: unknown switch &#96;m'
+usage: git pull [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    --recurse-submodules[=&lt;on-demand&gt;]
+                          control for recursive fetching of submodules
+
+Options related to merging
+    -r, --rebase[=(false|true|merges|interactive)]
+                          incorporate changes by rebasing rather than merging
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --log[=&lt;n&gt;]           add (at most &lt;n&gt;) entries from shortlog to merge commit message
+    --signoff[=...]       add a Signed-off-by trailer
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    --edit                edit message before committing
+    --cleanup &lt;mode&gt;      how to strip spaces and #comments from message
+    --ff                  allow fast-forward
+    --ff-only             abort if fast-forward is not possible
+    --verify              control use of pre-merge-commit and commit-msg hooks
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    --autostash           automatically stash/stash pop before and after
+    -s, --strategy &lt;strategy&gt;
+                          merge strategy to use
+    -X, --strategy-option &lt;option=value&gt;
+                          option for selected merge strategy
+    -S, --gpg-sign[=&lt;key-id&gt;]
+                          GPG sign commit
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+
+Options related to fetching
+    --all                 fetch from all remotes
+    -a, --append          append to .git/FETCH_HEAD instead of overwriting
+    --upload-pack &lt;path&gt;  path to upload pack on remote end
+    -f, --force           force overwrite of local branch
+    -t, --tags            fetch all tags and associated objects
+    -p, --prune           prune remote-tracking branches no longer on remote
+    -j, --jobs[=&lt;n&gt;]      number of submodules pulled in parallel
+    --dry-run             dry run
+    -k, --keep            keep downloaded pack
+    --depth &lt;depth&gt;       deepen history of shallow clone
+    --shallow-since &lt;time&gt;
+                          deepen history of shallow repository based on time
+    --shallow-exclude &lt;revision&gt;
+                          deepen history of shallow clone, excluding rev
+    --deepen &lt;n&gt;          deepen history of shallow clone
+    --unshallow           convert to a complete repository
+    --update-shallow      accept refs that update .git/shallow
+    --refmap &lt;refmap&gt;     specify fetch refmap
+    -o, --server-option &lt;server-specific&gt;
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+    --negotiation-tip &lt;revision&gt;
+                          report that we have only objects reachable from this object
+    --show-forced-updates
+                          check for forced-updates on all updated branches
+    --set-upstream        set upstream for git pull/fetch
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git merge origin/main --allow-unrelated-histories -m "chore: merge GitHub initial commit with local specification tree"</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git merge origin/main --allow-unrelated-histories -m "chore: merge GitHub initial commit with local specification tree"
+```
+
+```
+Merge made by the 'ort' strategy.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git push -u origin main</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git push -u origin main
+```
+
+```
+To https://github.com/ak1xra/jtbd-insight-db.git
+   822d6d1..867b204  main -&gt; main
+branch 'main' set up to track 'origin/main'.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git status projects/jtbd-insight-db/ 2>&1 | head -25</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor && git status projects/jtbd-insight-db/ 2>&1 | head -25
+```
+
+```
+On branch 2026-03-22-fmw5
+Your branch is up to date with 'origin/2026-03-22-fmw5'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	modified:   projects/jtbd-insight-db/.specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md
+	modified:   projects/jtbd-insight-db/.specstory/statistics.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+Interesting - parent doesn't show nested .</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+## なぜ `surveyspec` に行っていたか
+
+そのときの作業ディレクトリの **Git の「本体」が `Cursor` フォルダ全体**だったため、`git push` は **そのリポジトリの `origin`（= `ak1xra/surveyspec`）** に向かっていました。  
+**正しい専用リポ `jtbd-insight-db` 用の `.git` が `projects/jtbd-insight-db` に無かった**ので、意図したリモートには届いていませんでした。
+
+## いまやったこと（`jtbd-insight-db` 向け）
+
+1. **`projects/jtbd-insight-db` の中に `git init`（ブランチ `main`）**
+2. **`origin` を `https://github.com/ak1xra/jtbd-insight-db.git` に設定**
+3. リモートの **`Initial commit` だけの履歴**と、ローカルの一式を **`--allow-unrelated-histories` でマージ**
+4. **`git push -u origin main` 成功**（`822d6d1..867b204`）
+
+GitHub 上は **`ak1xra/jtbd-insight-db` の `main`** を開けば、今回のドキュメント一式が見える状態です。
+
+## 注意（モノレポ側）
+
+`Cursor` リポジトリの **`projects/jtbd-insight-db` はまだ surveyspec 側でも追跡**されています。中に **別の `.git` を置いた二重管理**になっているので、今後はどちらかに寄せるのがおすすめです。
+
+- **`jtbd-insight-db` 専用リポだけを正とする** → `surveyspec` からはこのフォルダを外す（削除 or submodule 化 or `.gitignore`）  
+- **`surveyspec` だけを正とする** → `jtbd-insight-db` 内の `.git` をやめる  
+
+運用方針を決めたら、その方針に合わせて整理すると混乱しません。
+
+---
+
+_**User**_
+
+jtbd-insight-db 専用リポだけを正とする → surveyspec からはこのフォルダを外す（削除 or submodule 化 or .gitignore）
+
+---
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+The user wants to make jtbd-insight-db the sole canonical repository by removing its folder from surveyspec monorepo tracking. The best approach is to add `projects/jtbd-insight-db` to the parent repository's `.gitignore` file, which will stop tracking it without deleting the files or nested `.git` directory. This preserves the folder structure and prevents accidental deletion during future commits.
+
+Options considered:
+- Delete: Would remove files permanently
+- Submodule: Not needed since it's a dedicated repo
+- .gitignore: Prevents tracking while preserving files
+
+The recommended solution is to use `.gitignore` to exclude the folder from tracking. To remove `projects/jtbd-insight-db` from the parent repository's tracking while preserving the files, add `projects/jtbd-insight-db/` to the parent repository's `.gitignore` file. This prevents the folder from being tracked without deleting the files or nested `.git` directory. The recommended approach avoids complexity like submodules or `git rm --cached`, which is unnecessary for this use case.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+surveyspec（モノレポ）のインデックスから `projects/jtbd-insight-db` を外し、`.gitignore` で無視するよう設定します。ディスク上のフォルダと専用リポの `.git` は残します。
+
+
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/.gitignore</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git branch --show-current && git ls-files projects/jtbd-insight-db/ | wc -l</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor && git branch --show-current && git ls-files projects/jtbd-insight-db/ | wc -l
+```
+
+```
+2026-03-22-fmw5
+      45
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+I need to add `projects/jtbd-insight-db/` to .</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/.gitignore</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+- Add a new section dedicated to the jtbd-insight-db
+- Ensure the section includes relevant details about the database
+- Organize the content logically within the document</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+`.gitignore` に追加し、`git rm --cached` でインデックスからだけ外します（ローカルの `jtbd-insight-db` フォルダと専用 `.git` は残ります）。
+
+
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ak1ra/Documents/02.Area/Cursor/.gitignore</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git rm -r --cached projects/jtbd-insight-db/</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor && git rm -r --cached projects/jtbd-insight-db/
+```
+
+```
+rm 'projects/jtbd-insight-db/.specstory/.project.json'
+rm 'projects/jtbd-insight-db/.specstory/cli/config.toml'
+rm 'projects/jtbd-insight-db/.specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md'
+rm 'projects/jtbd-insight-db/.specstory/statistics.json'
+rm 'projects/jtbd-insight-db/.vscode/settings.json'
+rm 'projects/jtbd-insight-db/CHANGELOG.md'
+rm 'projects/jtbd-insight-db/LICENCE.md'
+rm 'projects/jtbd-insight-db/LICENSE'
+rm 'projects/jtbd-insight-db/README.md'
+rm 'projects/jtbd-insight-db/SPECIFICATION.md'
+rm 'projects/jtbd-insight-db/docs/ai-prompts/README.md'
+rm 'projects/jtbd-insight-db/docs/ai-prompts/forces.md'
+rm 'projects/jtbd-insight-db/docs/ai-prompts/insight-name.md'
+rm 'projects/jtbd-insight-db/docs/ai-prompts/journey-stage.md'
+rm 'projects/jtbd-insight-db/docs/ai-prompts/summary.md'
+rm 'projects/jtbd-insight-db/docs/architecture/data-flow.md'
+rm 'projects/jtbd-insight-db/docs/architecture/jtbd-forces-framework.md'
+rm 'projects/jtbd-insight-db/docs/architecture/overview.md'
+rm 'projects/jtbd-insight-db/docs/architecture/relation-diagram.md'
+rm 'projects/jtbd-insight-db/docs/governance/forbidden-actions.md'
+rm 'projects/jtbd-insight-db/docs/governance/human-in-the-point.md'
+rm 'projects/jtbd-insight-db/docs/governance/quality-criteria.md'
+rm 'projects/jtbd-insight-db/docs/integration/bmc-db-connection.md'
+rm 'projects/jtbd-insight-db/docs/integration/job-db-connection.md'
+rm 'projects/jtbd-insight-db/docs/integration/tag-dictionary-connection.md'
+rm 'projects/jtbd-insight-db/docs/integration/vpc-db-connection.md'
+rm 'projects/jtbd-insight-db/docs/operations/input-workflow.md'
+rm 'projects/jtbd-insight-db/docs/operations/maintenance.md'
+rm 'projects/jtbd-insight-db/docs/operations/migration-v1-to-v2.md'
+rm 'projects/jtbd-insight-db/docs/operations/review-workflow.md'
+rm 'projects/jtbd-insight-db/examples/bad-examples.md'
+rm 'projects/jtbd-insight-db/examples/edge-cases.md'
+rm 'projects/jtbd-insight-db/examples/good-examples.md'
+rm 'projects/jtbd-insight-db/schemas/insight-db-schema.md'
+rm 'projects/jtbd-insight-db/schemas/property-definitions.md'
+rm 'projects/jtbd-insight-db/schemas/relations.md'
+rm 'projects/jtbd-insight-db/schemas/select-options.md'
+rm 'projects/jtbd-insight-db/scripts/README.md'
+rm 'projects/jtbd-insight-db/scripts/migration/backup-v1.gas'
+rm 'projects/jtbd-insight-db/scripts/migration/v1-to-v2-migration.gas'
+rm 'projects/jtbd-insight-db/scripts/validation/hallucination-detector.gas'
+rm 'projects/jtbd-insight-db/scripts/validation/quality-check.gas'
+rm 'projects/jtbd-insight-db/templates/insight-entry-template.md'
+rm 'projects/jtbd-insight-db/templates/review-checklist.md'
+rm 'projects/jtbd-insight-db/templates/summary-format.md'
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: test -f /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/README.md && test -d /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git && echo "OK: files and nested .git remain"</summary>
+
+```bash
+test -f /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/README.md && test -d /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/.git && echo "OK: files and nested .git remain"
+```
+
+```
+OK: files and nested .git remain
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git add .gitignore && git status --short | head -20</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor && git add .gitignore && git status --short | head -20
+```
+
+```
+M  .gitignore
+ M .specstory/statistics.json
+ M projects/GasHubCode/.specstory/history/2026-04-30_05-23-24Z-specification-description-guidelines.md
+ M projects/GasHubCode/.specstory/history/2026-04-30_05-56-18Z.md
+ M projects/GasHubCode/.specstory/statistics.json
+D  projects/jtbd-insight-db/.specstory/.project.json
+D  projects/jtbd-insight-db/.specstory/cli/config.toml
+D  projects/jtbd-insight-db/.specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md
+D  projects/jtbd-insight-db/.specstory/statistics.json
+D  projects/jtbd-insight-db/.vscode/settings.json
+D  projects/jtbd-insight-db/CHANGELOG.md
+D  projects/jtbd-insight-db/LICENCE.md
+D  projects/jtbd-insight-db/LICENSE
+D  projects/jtbd-insight-db/README.md
+D  projects/jtbd-insight-db/SPECIFICATION.md
+D  projects/jtbd-insight-db/docs/ai-prompts/README.md
+D  projects/jtbd-insight-db/docs/ai-prompts/forces.md
+D  projects/jtbd-insight-db/docs/ai-prompts/insight-name.md
+D  projects/jtbd-insight-db/docs/ai-prompts/journey-stage.md
+D  projects/jtbd-insight-db/docs/ai-prompts/summary.md
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+Commit only .gitignore and the deletions for jtbd-insight-db. The staged state should include D files and M.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "chore: stop tracking projects/jtbd-insight-db (standalone repo)
+
+jtbd-insight-db is maintained at github.com/ak1xra/jtbd-insight-db.
+Ignore the local path in this monorepo to avoid duplicate history."</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor && git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "chore: stop tracking projects/jtbd-insight-db (standalone repo)
+
+jtbd-insight-db is maintained at github.com/ak1xra/jtbd-insight-db.
+Ignore the local path in this monorepo to avoid duplicate history."
+```
+
+```
+[2026-03-22-fmw5 358c16c] chore: stop tracking projects/jtbd-insight-db (standalone repo)
+ 46 files changed, 6 insertions(+), 4192 deletions(-)
+ delete mode 100644 projects/jtbd-insight-db/.specstory/.project.json
+ delete mode 100644 projects/jtbd-insight-db/.specstory/cli/config.toml
+ delete mode 100644 projects/jtbd-insight-db/.specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md
+ delete mode 100644 projects/jtbd-insight-db/.specstory/statistics.json
+ delete mode 100644 projects/jtbd-insight-db/.vscode/settings.json
+ delete mode 100644 projects/jtbd-insight-db/CHANGELOG.md
+ delete mode 100644 projects/jtbd-insight-db/LICENCE.md
+ delete mode 100644 projects/jtbd-insight-db/LICENSE
+ delete mode 100644 projects/jtbd-insight-db/README.md
+ delete mode 100644 projects/jtbd-insight-db/SPECIFICATION.md
+ delete mode 100644 projects/jtbd-insight-db/docs/ai-prompts/README.md
+ delete mode 100644 projects/jtbd-insight-db/docs/ai-prompts/forces.md
+ delete mode 100644 projects/jtbd-insight-db/docs/ai-prompts/insight-name.md
+ delete mode 100644 projects/jtbd-insight-db/docs/ai-prompts/journey-stage.md
+ delete mode 100644 projects/jtbd-insight-db/docs/ai-prompts/summary.md
+ delete mode 100644 projects/jtbd-insight-db/docs/architecture/data-flow.md
+ delete mode 100644 projects/jtbd-insight-db/docs/architecture/jtbd-forces-framework.md
+ delete mode 100644 projects/jtbd-insight-db/docs/architecture/overview.md
+ delete mode 100644 projects/jtbd-insight-db/docs/architecture/relation-diagram.md
+ delete mode 100644 projects/jtbd-insight-db/docs/governance/forbidden-actions.md
+ delete mode 100644 projects/jtbd-insight-db/docs/governance/human-in-the-point.md
+ delete mode 100644 projects/jtbd-insight-db/docs/governance/quality-criteria.md
+ delete mode 100644 projects/jtbd-insight-db/docs/integration/bmc-db-connection.md
+ delete mode 100644 projects/jtbd-insight-db/docs/integration/job-db-connection.md
+ delete mode 100644 projects/jtbd-insight-db/docs/integration/tag-dictionary-connection.md
+ delete mode 100644 projects/jtbd-insight-db/docs/integration/vpc-db-connection.md
+ delete mode 100644 projects/jtbd-insight-db/docs/operations/input-workflow.md
+ delete mode 100644 projects/jtbd-insight-db/docs/operations/maintenance.md
+ delete mode 100644 projects/jtbd-insight-db/docs/operations/migration-v1-to-v2.md
+ delete mode 100644 projects/jtbd-insight-db/docs/operations/review-workflow.md
+ delete mode 100644 projects/jtbd-insight-db/examples/bad-examples.md
+ delete mode 100644 projects/jtbd-insight-db/examples/edge-cases.md
+ delete mode 100644 projects/jtbd-insight-db/examples/good-examples.md
+ delete mode 100644 projects/jtbd-insight-db/schemas/insight-db-schema.md
+ delete mode 100644 projects/jtbd-insight-db/schemas/property-definitions.md
+ delete mode 100644 projects/jtbd-insight-db/schemas/relations.md
+ delete mode 100644 projects/jtbd-insight-db/schemas/select-options.md
+ delete mode 100644 projects/jtbd-insight-db/scripts/README.md
+ delete mode 100644 projects/jtbd-insight-db/scripts/migration/backup-v1.gas
+ delete mode 100644 projects/jtbd-insight-db/scripts/migration/v1-to-v2-migration.gas
+ delete mode 100644 projects/jtbd-insight-db/scripts/validation/hallucination-detector.gas
+ delete mode 100644 projects/jtbd-insight-db/scripts/validation/quality-check.gas
+ delete mode 100644 projects/jtbd-insight-db/templates/insight-entry-template.md
+ delete mode 100644 projects/jtbd-insight-db/templates/review-checklist.md
+ delete mode 100644 projects/jtbd-insight-db/templates/summary-format.md
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor && git push origin 2026-03-22-fmw5</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor && git push origin 2026-03-22-fmw5
+```
+
+```
+To https://github.com/ak1xra/surveyspec.git
+   e942fcd..358c16c  2026-03-22-fmw5 -&gt; 2026-03-22-fmw5
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+対応しました。**Submodule にはせず**、**`surveyspec` から追跡だけ外す + `.gitignore`** にしています（運用が一番シンプルです）。
+
+## 実施内容
+
+1. **`/Users/ak1ra/Documents/02.Area/Cursor/.gitignore`**  
+   - `projects/jtbd-insight-db/` を追加  
+   - コメントで正本リポ（`github.com/ak1xra/jtbd-insight-db`）を明記  
+
+2. **モノレポ側で `git rm -r --cached projects/jtbd-insight-db/`**  
+   - **インデックスからだけ削除**（ディスク上のフォルダと、中の **専用 `.git` はそのまま**）  
+
+3. **コミット** `358c16c` — `chore: stop tracking projects/jtbd-insight-db (standalone repo)`  
+
+4. **`git push origin 2026-03-22-fmw5`** — `surveyspec` に反映済み  
+
+## いまの状態
+
+| 場所 | 内容 |
+|------|------|
+| **ローカル** `projects/jtbd-insight-db/` | ファイルも **独立リポの `.git` も残存**（そのまま編集・`git push` 可能） |
+| **`surveyspec`** | このパスは **追跡しない**（clone しても中身は来ない） |
+| **`jtbd-insight-db`（GitHub）** | 引き続き **正本** |
+
+## 他マシン / 新規 clone したとき
+
+`surveyspec` だけ clone すると **`jtbd-insight-db` は空**なので、別途:
+
+```bash
+git clone https://github.com/ak1xra/jtbd-insight-db.git projects/jtbd-insight-db
+```
+
+のように **専用リポを `projects/jtbd-insight-db` に置く**運用になります。
+
+---
+
+**Submodule にしなかった理由**: 正本を専用リポ一本にしたいだけなら、サブモジュールは手順が増えるうえ、メリットが薄いです。あとから「モノレポから必ず同じコミットを引きたい」になったら、そのとき submodule 化もできます。
+
+---
+
+_**User**_
+
+### Phase 2.5: 推奨ビューの作成
+
+insight DB に以下のビューを作成。優先順位順に実装し、各段階で AK1RA の確認を得る。
+
+#### Tier 1: Core ビュー（必須・即実装）
+
+1. **All Insights**
+   - 種類: Table
+   - フィルタ: なし
+   - ソート: 取得日 降順
+   - 表示プロパティ: insight名 / 顧客属性 / Forces / ジャーニー段階 / 重要度 / 確からしさ / レビュー状態 / 取得日
+
+2. **下書き**
+   - 種類: Table
+   - フィルタ: `レビュー状態 = 下書き`
+   - ソート: 取得日 降順
+   - 用途: レビュー待ち一覧
+
+3. **レビュー中**
+   - 種類: Table
+   - フィルタ: `レビュー状態 = レビュー中`
+   - ソート: 取得日 降順
+   - 用途: 現在進行中のレビュー
+
+4. **確定済み**
+   - 種類: Table
+   - フィルタ: `レビュー状態 = 確定`
+   - ソート: 重要度 降順
+   - 用途: 戦略立案使用候補
+
+5. **戦略候補**
+   - 種類: Table
+   - フィルタ: `レビュー状態 = 確定 AND 重要度 ≥ 4 AND 確からしさ ≥ 4`
+   - ソート: 重要度 降順
+   - 用途: VPC/BMC連携対象（最重要ビュー）
+
+#### Tier 2: 分析ビュー（推奨・データ20件以降）
+
+6. **Forces 分析**
+   - 種類: Board
+   - グループ: Forces
+   - フィルタ: `レビュー状態 = 確定`
+   - 用途: Push/Pull/Anxiety/Habit 分布把握
+
+7. **ジャーニー分析**
+   - 種類: Board
+   - グループ: ジャーニー段階
+   - フィルタ: `レビュー状態 = 確定`
+   - 用途: ファネル分析
+
+8. **顧客属性分析**
+   - 種類: Board
+   - グループ: 顧客属性
+   - フィルタ: `レビュー状態 = 確定`
+   - 用途: セグメント別分布
+
+#### Tier 3: 品質管理ビュー（推奨・データ50件以降）
+
+9. **⚠️ 未接続 insight**
+   - 種類: Table
+   - フィルタ: `job が空 AND レビュー状態 ≠ 下書き`
+   - 用途: job未接続の検出
+
+10. **⚠️ Forces 空欄**
+    - 種類: Table
+    - フィルタ: `Forces が空 AND レビュー状態 = 確定`
+    - 用途: 空欄理由レビュー対象
+
+11. **⚠️ 古い下書き**
+    - 種類: Table
+    - フィルタ: `レビュー状態 = 下書き AND 取得日 < 7日前`
+    - 用途: レビュー遅延検出
+
+12. **⚠️ 要約未生成**
+    - 種類: Table
+    - フィルタ: `要約が空`
+    - 用途: AI autofill 漏れ検出
+
+#### デフォルトビュー設定
+- 入力者向け: `下書き` をデフォルト
+- レビュアー向け: `レビュー中`
+- 戦略立案者向け: `戦略候補`
+
+→ AK1RA に「Tier 1 のみ作成」「Tier 1+2」「全Tier」のいずれかを確認。
+
+---
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+ I need to confirm with the user which tier level they want to implement for the recommended views in their Notion insight database—whether that's Tier 1 only, Tier 1 and 2, or all tiers.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+承認待ちのため、進める範囲と「実装の形」を確認させてください。
+
+技術メモ（事前共有）:
+- **Notion API は DB ビューの新規作成には直接対応していません**（2026-05 時点で確認できる範囲）。MCP 経由でも、ビュー定義そのものを API 作成することは原則できず、**最終的な作成は Notion UI 側の手作業**になります。
+- そのため、実装の現実解は **(A) リポに「ビュー仕様」を文書化** し、AK1RA が Notion 上で同名・同設定のビューを手動作成、という流れになります。
+- もし MCP で対象 DB を取得できるなら、**(B) フィルタ式 / ソート / グループの JSON サンプル** まで生成できます。
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ask_question">
+<details>
+<summary>Tool use: **ask_question**</summary>
+
+
+Parameters:
+
+```json
+{
+  "questions": [
+    {
+      "id": "tier_scope",
+      "options": [
+        {
+          "id": "t1",
+          "label": "Tier 1 のみ（5 ビュー: All / 下書き / レビュー中 / 確定済み / 戦略候補）"
+        },
+        {
+          "id": "t1_t2",
+          "label": "Tier 1 + Tier 2（8 ビュー: 上記 + Forces / ジャーニー / 顧客属性）"
+        },
+        {
+          "id": "all",
+          "label": "全 Tier（12 ビュー、品質管理ビュー含む）"
+        },
+        {
+          "id": "minimum",
+          "label": "戦略候補ビューだけ先行（最小：1 ビュー）"
+        }
+      ],
+      "prompt": "どの Tier まで作成しますか？（範囲）"
+    },
+    {
+      "id": "deliverable",
+      "options": [
+        {
+          "id": "spec_only",
+          "label": "(A) リポに『ビュー仕様 MD』を作る（私が Notion で見ながら手動構築）"
+        },
+        {
+          "id": "spec_plus_filter_json",
+          "label": "(A) + Notion 互換のフィルタ式 / ソート / グループの JSON サンプル付き"
+        },
+        {
+          "id": "spec_plus_mcp_attempt",
+          "label": "(A) + Notion MCP で作成可能な範囲は試す（失敗時は MD のみ残す）"
+        }
+      ],
+      "prompt": "成果物の形（Notion API はビュー作成に未対応のため）"
+    },
+    {
+      "id": "default_view",
+      "options": [
+        {
+          "id": "draft",
+          "label": "入力者向け：『下書き』をデフォルトにする"
+        },
+        {
+          "id": "in_review",
+          "label": "レビュアー向け：『レビュー中』をデフォルトにする"
+        },
+        {
+          "id": "candidate",
+          "label": "戦略立案者向け：『戦略候補』をデフォルトにする"
+        },
+        {
+          "id": "all_views",
+          "label": "全ロール用にそれぞれデフォルト案を併記（運用判断は AK1RA）"
+        }
+      ],
+      "prompt": "デフォルトビューの設定先（最初に開く想定ロール）"
+    }
+  ],
+  "title": "Phase 2.5: 推奨ビュー作成 — 実装範囲の確認"
+}
+```
+Additional data:
+
+```json
+{
+  "currentSelections": {
+    "default_view": [
+      "candidate"
+    ],
+    "deliverable": [
+      "spec_only"
+    ],
+    "tier_scope": [
+      "all"
+    ]
+  },
+  "freeformTexts": {
+    "default_view": "",
+    "deliverable": "",
+    "tier_scope": ""
+  },
+  "status": "submitted"
+}
+```
+Result:
+
+```json
+{
+  "answers": [
+    {
+      "freeformText": "",
+      "questionId": "tier_scope",
+      "selectedOptionIds": [
+        "all"
+      ]
+    },
+    {
+      "freeformText": "",
+      "questionId": "deliverable",
+      "selectedOptionIds": [
+        "spec_only"
+      ]
+    },
+    {
+      "freeformText": "",
+      "questionId": "default_view",
+      "selectedOptionIds": [
+        "candidate"
+      ]
+    }
+  ]
+}
+```
+User decision: **accepted**
+
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ask_question"><details>
+<summary>Tool use: **ask_question**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+ The user wants all 12 views documented as a Markdown specification, with the candidate view set as the default. I'm planning to create this comprehensive views specification at `docs/operations/views.md` to keep it alongside other operational documentation.
+
+Now I'm structuring the spec to cover all three tiers of views with their names, types, filters, sorting, grouping, displayed properties, purpose, and introduction timing. I need to be careful with the filter expressions since they need to match Notion's actual filter syntax and operators. I'll also preserve the exact view names as the user specified them, including any emoji they included.
+
+I should create the file at `docs/operations/views.md`, then update README.md with a reference link and consider whether SPECIFICATION.md needs an appendix or new section pointing to this documentation. I might also want to update the CHANGELOG for this addition.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+承認内容で進めます: **全 12 ビュー**を **MD 仕様**として `docs/operations/views.md` に新規作成し、**デフォルトビューは「戦略候補」** を推奨にします。既存の README / SPECIFICATION / CHANGELOG への参照リンクも更新します。
+
+_**Agent (claude-opus-4-6)**_
+
+Cancelled
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+---
+
+_**User**_
+
+推奨ビュー: @SPECIFICATION.mdに記載してください 
+
+---
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+ The user confirmed they want all tiers displayed with 12 views in Markdown format, using 戦略候補 as the default view across all roles. Now I need to check the current SPECIFICATION.md file to find where to add these recommended views.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/SPECIFICATION.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+ I'm adding a new section for recommended Notion views within the operations rules, setting the default view to 戦略候補 across all roles while noting that AK1RA makes the final deployment decisions, and I'll document this as markdown specifications with a note about the Notion API.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/SPECIFICATION.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+ I should update the CHANGELOG to document this new feature under the Unreleased section.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/CHANGELOG.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+追加しました。
+
+## 追加内容
+
+**`SPECIFICATION.md` §7.4 推奨ビュー（Notion）** を `7.3` と `8. Forbidden Actions` の間に新設。
+
+- **冒頭の注記**: Notion API はビュー作成に対応しないため **「Notion UI で手動作成するための仕様」** と明示（実装ギャップを正本に書いておく）。
+- **デフォルトビュー**: 全ロール **`戦略候補`** に統一（あなたの選択どおり）。後日のロール別変更余地を 1 行残しています。
+- **Tier 1（必須・5 ビュー）**: 表でフィルタ / ソート / 表示プロパティを明記。`戦略候補` には `要約` カラムを追加（VPC/BMC 連携時の参照に必須のため）。
+- **Tier 2（分析・3 ビュー）**: Board の共通カードプロパティと、`Forces` Multi-select で 1 件が複数列に出る注意も追記。
+- **Tier 3（品質管理・4 ビュー）**: 各ビューを既存の正本セクションへリンク（`relations.md §1` / `property-definitions.md §8` / 品質メトリクス）。
+- **ビュー設計の原則 4 点**: Human-in-the-Point と、`戦略候補` の条件固定を明文化。
+
+## 併せて更新
+
+- **`CHANGELOG.md` `[Unreleased]`**: §7.4 追加を 1 行記録。
+
+## Notion 側の作業（参考）
+
+このあと AK1RA が Notion で実装する際は、**Tier 1 → Tier 2（20 件超で）→ Tier 3（50 件超で）** の段階構築になります。`Forces 空欄` のフィルタ式は Notion UI の Multi-select で「`Forces` is empty」を使えば再現できます。
+
+---
+
+**Git 反映**: 専用リポ `jtbd-insight-db` への commit / push は実行していません。`SPECIFICATION.md` と `CHANGELOG.md` の **2 ファイル変更を `chore: add §7.4 recommended views`** などでコミットしてよいか、明示承認をください。
+
+---
+
+_**User**_
+
+# JTBD Insight DB - GitHub Repo 修正エージェント
+
+GitHub `ak1xra/jtbd-insight-db` v2.0 の repo に対し、以下のスコープで仕様追加・修正を行う。
+
+## SSOT
+- 正本: https://github.com/ak1xra/jtbd-insight-db
+- 既存 SPECIFICATION: https://github.com/ak1xra/jtbd-insight-db/blob/main/SPECIFICATION.md
+
+## スコープ
+1. ディレクトリ構造の更新（schemas/ 配下に3ファイル追加）
+2. Job DB プロパティ設計書の作成
+3. BMC DB プロパティ設計書の作成
+4. VPC DB プロパティ設計書の作成
+
+Insight DB / TagDictionary は対象外。
+
+## 原則（厳守）
+- Human-in-the-Point: 各 Phase 開始前に AK1RA の承認を得る
+- 不可逆操作（削除・既存ファイル上書き）は二重確認
+- 出力は日本語、構造化Markdown、推測は【仮説】タグ
+- 既存ファイルの構造・スタイルに整合させる
+- DB名と論理名を厳密に区別
+
+## DB命名規則（厳守）
+
+| DB | DB名（Notion表示名） | 論理名（コード参照用） |
+|---|---|---|
+| Job DB | `Job` | `job` |
+| VPC DB | `VPC` | `vpc` |
+| BMC DB | `BMC` | `bmc` |
+
+## 一意識別子の方針（全DB共通）
+- Title プロパティ: 人間可読な名称
+- Unique ID プロパティ: 自動採番
+
+| DB | Title | Unique ID |
+|---|---|---|
+| Job | `job_summary` | `Job ID` (`JOB-`) |
+| VPC | `VPC名` | `VPC ID` (`VPC-`) |
+| BMC | `事業名` | `BMC ID` (`BMC-`) |
+
+## Phase 0: 前提確認
+
+1. GitHub repo の現状確認:
+   - 既存 schemas/ ディレクトリ構造（`schemas/insight-db-schema.md` / `property-definitions.md` / `select-options.md` / `relations.md`）
+   - 既存 SPECIFICATION.md §2.2「接続先DB」セクション
+   - 既存 docs/integration/ 配下のファイル
+2. 既存ファイルのフォーマット・スタイル把握（見出し階層・表記ルール）
+3. AK1RA に確認:
+   - ブランチ戦略（main直push / feature ブランチ）
+   - PR作成の要否
+   - コミットメッセージ規約
+   - 既存ファイルとの整合性（特に property-definitions.md / relations.md の更新範囲）
+
+## Phase 1: ディレクトリ構造の更新
+
+### 1.1 追加ファイル
+```
+jtbd-insight-db/
+└── schemas/
+    ├── job-db-schema.md       🆕 新規追加
+    ├── vpc-db-schema.md       🆕 新規追加
+    └── bmc-db-schema.md       🆕 新規追加
+```
+
+### 1.2 既存ファイルの更新候補
+- `SPECIFICATION.md` §2.2 表に schemas へのリンク追加
+- `schemas/relations.md` に Job-VPC-BMC 間の Relation 設計追記
+- `README.md` ディレクトリ構造セクション更新
+
+各ファイルの更新範囲は AK1RA に確認。
+
+## Phase 2: Job DB スキーマファイル作成
+
+ファイル: `schemas/job-db-schema.md`
+
+以下の内容で作成:
+
+```markdown
+# Job DB Schema
+
+> **File**: `schemas/job-db-schema.md`
+> **Version**: 1.0
+> **Last Updated**: 2026-05-03
+> **DB名**: `Job` / **論理名**: `job`
+
+## 概要
+JTBD理論における Job（顧客が片付けたい用事）を管理する DB。Insight DB から根拠データを受け取り、VPC DB へ接続する中間層。
+
+## 一意識別子
+- Title: `job_summary`（人間可読な要約）
+- Unique ID: `Job ID`（自動採番、プレフィックス: `JOB-`）
+
+## プロパティ一覧
+
+| # | プロパティ名 | 型 | 必須 | 説明 |
+|---|---|---|---|---|
+| 1 | job_summary | Title | ✅ | jobの簡潔な要約（25文字以内） |
+| 2 | Job ID | Unique ID | ✅ | 自動採番（`JOB-`） |
+| 3 | job_statement | Text | ✅ | "When [situation], I want to [motivation], so I can [outcome]" |
+| 4 | situation | Text | ✅ | 状況（When 部分） |
+| 5 | motivation | Text | ✅ | 動機（want to 部分） |
+| 6 | outcome | Text | ✅ | 望む結果（so I can 部分） |
+| 7 | job_type | Select | ❌ | Functional / Emotional / Social |
+| 8 | 現状代替手段 | Text | ❌ | Habit Forces から導出 |
+| 9 | 重要度 | Number | ✅ | 1-5 |
+| 10 | 満足度 | Number | ❌ | 1-5（ODI参考値） |
+| 11 | 機会スコア | Formula | ❌ | `重要度 + max(0, 重要度 - 満足度)` |
+| 12 | 関連insight | Relation | ❌ | Insight DB（双方向） |
+| 13 | 関連VPC | Relation | ❌ | VPC DB（双方向） |
+| 14 | タグ | Relation | ❌ | TagDictionary |
+| 15 | ステータス | Select | ✅ | 仮説 / 検証中 / 確定 / 棄却 |
+| 16 | 作成日 | Date | ✅ | |
+| 17 | 更新日 | Date | ❌ | |
+
+## Select 候補値
+
+### job_type
+- Functional: 機能的なJob（タスク完遂）
+- Emotional: 感情的なJob（気分・自己認識）
+- Social: 社会的なJob（他者からの認識）
+
+### ステータス
+- 仮説: insight 不足、未検証
+- 検証中: insight 収集中
+- 確定: 戦略立案に使用可
+- 棄却: 検証の結果、不採用
+
+## 機会スコアの算出
+ODI（Outcome-Driven Innovation）の機会アルゴリズムに準拠:
+`opportunity_score = importance + max(0, importance - satisfaction)`
+
+- 重要度高 + 満足度低 = 機会スコア最大（最優先）
+- 重要度高 + 満足度高 = 機会スコア中
+- 重要度低 = 機会スコア低（優先度下）
+
+## Relation 仕様
+
+### Job ↔ Insight（双方向）
+- 多重度: 1対多（1つのjobに複数insight）
+- 必須: ❌（Job作成時はinsight未接続でも可）
+
+### Job ↔ VPC（双方向）
+- 多重度: 1対多（1つのjobに複数VPC）
+- 必須: ❌
+
+### Job → TagDictionary
+- 多重度: 多対多
+- 必須: ❌
+
+## 推奨ビュー
+
+### Tier 1
+- All Jobs (Table)
+- 確定済み (Table, フィルタ: ステータス=確定)
+- 機会スコア順 (Table, ソート: 機会スコア降順)
+
+### Tier 2
+- ステータス別 (Board, グループ: ステータス)
+- job_type別 (Board, グループ: job_type)
+
+## 初期エントリ
+- `job_summary`: 未分類
+- `ステータス`: 仮説
+- 用途: 未分類insight の一時接続先
+
+## 関連ドキュメント
+- [SPECIFICATION.md](../SPECIFICATION.md)
+- [property-definitions.md](./property-definitions.md)
+- [relations.md](./relations.md)
+- [docs/integration/job-db-connection.md](../docs/integration/job-db-connection.md)
+```
+
+## Phase 3: VPC DB スキーマファイル作成
+
+ファイル: `schemas/vpc-db-schema.md`
+
+以下の内容で作成:
+
+```markdown
+# VPC DB Schema
+
+> **File**: `schemas/vpc-db-schema.md`
+> **Version**: 1.0
+> **Last Updated**: 2026-05-03
+> **DB名**: `VPC` / **論理名**: `vpc`
+
+## 概要
+Strategyzer社の Value Proposition Canvas に準拠。Customer Profile（Jobs/Pains/Gains）と Value Map（Products/Pain Relievers/Gain Creators）を管理。job単位で1VPCを基本とする。
+
+## 一意識別子
+- Title: `VPC名`（命名規則: `[セグメント名]向け [job要約]`）
+- Unique ID: `VPC ID`（自動採番、プレフィックス: `VPC-`）
+
+## プロパティ一覧
+
+| # | プロパティ名 | 型 | 必須 | 説明 |
+|---|---|---|---|---|
+| 1 | VPC名 | Title | ✅ | 「[セグメント名]向け [job要約]」形式 |
+| 2 | VPC ID | Unique ID | ✅ | 自動採番（`VPC-`） |
+| 3 | 対象job | Relation | ✅ | Job DB（多対1） |
+| 4 | 顧客セグメント | Text | ✅ | 対象とする顧客像 |
+| 5 | Customer Jobs | Text | ✅ | jobの要約 |
+| 6 | Pains | Text | ✅ | 顧客の痛み |
+| 7 | Gains | Text | ✅ | 顧客の利得 |
+| 8 | Products & Services | Text | ✅ | 提供する製品・サービス |
+| 9 | Pain Relievers | Text | ✅ | Pains を緩和する手段 |
+| 10 | Gain Creators | Text | ✅ | Gains を生み出す手段 |
+| 11 | Pain重要度 | Select | ❌ | High / Medium / Low |
+| 12 | Gain重要度 | Select | ❌ | High / Medium / Low |
+| 13 | Fit評価 | Select | ❌ | Problem-Solution Fit / Product-Market Fit / 検証中 |
+| 14 | 関連BMC | Relation | ❌ | BMC DB（多対1） |
+| 15 | タグ | Relation | ❌ | TagDictionary |
+| 16 | ステータス | Select | ✅ | ドラフト / レビュー中 / 確定 |
+| 17 | 作成日 | Date | ✅ | |
+| 18 | 更新日 | Date | ❌ | |
+
+## Select 候補値
+
+### Pain重要度 / Gain重要度
+- High / Medium / Low
+
+### Fit評価
+- Problem-Solution Fit: Pains/Gains に対し Pain Relievers/Gain Creators が適合
+- Product-Market Fit: 市場検証済み
+- 検証中: 評価未完了
+
+### ステータス
+- ドラフト: 作成中
+- レビュー中: レビュー実施中
+- 確定: 戦略立案に使用可
+
+## Forces → VPC マッピング
+Insight DB の Forces から VPC へ機械的に接続:
+
+| Insight.Forces | VPC接続先 |
+|---|---|
+| Push | VPC.Pains |
+| Pull | VPC.Gains |
+| Anxiety | VPC.Pains（心理的痛み） |
+| Habit | Job.現状代替手段（VPC直接ではない） |
+
+## Relation 仕様
+
+### VPC → Job（多対1）
+- 多重度: 多対1（複数VPCが1つのjobに紐付く可能性）
+- 必須: ✅
+
+### VPC ↔ BMC（双方向）
+- 多重度: 多対1（1BMCに複数VPC）
+- 必須: ❌
+
+### VPC → TagDictionary
+- 多重度: 多対多
+- 必須: ❌
+
+## VPC作成の単位
+- 1 job × 1 顧客セグメント = 1 VPC
+- 同じjobでも顧客セグメントが異なれば別VPC
+- 同じ顧客セグメントでも複数jobあれば複数VPC
+
+## 推奨ビュー
+
+### Tier 1
+- All VPC (Table)
+- 確定済み (Table, フィルタ: ステータス=確定)
+
+### Tier 2
+- Fit評価別 (Board, グループ: Fit評価)
+- job別 (Table, グループ: 対象job)
+
+## 関連ドキュメント
+- [SPECIFICATION.md](../SPECIFICATION.md)
+- [job-db-schema.md](./job-db-schema.md)
+- [bmc-db-schema.md](./bmc-db-schema.md)
+- [docs/integration/vpc-db-connection.md](../docs/integration/vpc-db-connection.md)
+```
+
+## Phase 4: BMC DB スキーマファイル作成
+
+ファイル: `schemas/bmc-db-schema.md`
+
+以下の内容で作成:
+
+```markdown
+# BMC DB Schema
+
+> **File**: `schemas/bmc-db-schema.md`
+> **Version**: 1.0
+> **Last Updated**: 2026-05-03
+> **DB名**: `BMC` / **論理名**: `bmc`
+
+## 概要
+Osterwalder の Business Model Canvas 9ブロックに準拠。事業単位で1BMC が基本。VPC（Customer Segments / Value Propositions の根拠）から接続される最上位の戦略層。
+
+## 一意識別子
+- Title: `事業名`
+- Unique ID: `BMC ID`（自動採番、プレフィックス: `BMC-`）
+
+## プロパティ一覧
+
+| # | プロパティ名 | 型 | 必須 | 説明 |
+|---|---|---|---|---|
+| 1 | 事業名 | Title | ✅ | 対象事業の名称 |
+| 2 | BMC ID | Unique ID | ✅ | 自動採番（`BMC-`） |
+| 3 | Customer Segments | Text | ✅ | 顧客セグメント |
+| 4 | Value Propositions | Text | ✅ | 価値提案 |
+| 5 | Channels | Text | ✅ | 顧客接点・チャネル |
+| 6 | Customer Relationships | Text | ✅ | 顧客関係 |
+| 7 | Revenue Streams | Text | ✅ | 収益の流れ |
+| 8 | Key Resources | Text | ✅ | 主要リソース |
+| 9 | Key Activities | Text | ✅ | 主要活動 |
+| 10 | Key Partnerships | Text | ✅ | 主要パートナー |
+| 11 | Cost Structure | Text | ✅ | コスト構造 |
+| 12 | 関連VPC | Relation | ❌ | VPC DB（1対多） |
+| 13 | 事業ステージ | Select | ❌ | アイデア / 検証 / 立ち上げ / 成長 / 成熟 |
+| 14 | バージョン | Text | ✅ | v1.0 / v2.0 形式 |
+| 15 | タグ | Relation | ❌ | TagDictionary |
+| 16 | ステータス | Select | ✅ | ドラフト / レビュー中 / 確定 / アーカイブ |
+| 17 | 作成日 | Date | ✅ | |
+| 18 | 更新日 | Date | ❌ | |
+
+## BMC 9ブロックの対応
+
+| BMC 9ブロック | プロパティ | 説明 |
+|---|---|---|
+| Customer Segments | Customer Segments | 誰のために |
+| Value Propositions | Value Propositions | 何の価値を |
+| Channels | Channels | どう届けるか |
+| Customer Relationships | Customer Relationships | どう関係を築くか |
+| Revenue Streams | Revenue Streams | どう収益を得るか |
+| Key Resources | Key Resources | 何が必要か |
+| Key Activities | Key Activities | 何をするか |
+| Key Partnerships | Key Partnerships | 誰と組むか |
+| Cost Structure | Cost Structure | 何にコストがかかるか |
+
+## Select 候補値
+
+### 事業ステージ
+- アイデア: 構想段階
+- 検証: PoC / MVP実施中
+- 立ち上げ: ローンチ後
+- 成長: 拡大期
+- 成熟: 安定期
+
+### ステータス
+- ドラフト: 作成中
+- レビュー中: レビュー実施中
+- 確定: 戦略実行に使用
+- アーカイブ: 旧版保管
+
+## Insight → BMC 接続フロー
+1. Insight 確定（重要度4以上 + 確からしさ4以上）
+2. 顧客属性 × ジャーニー段階 で集計
+3. BMC.Customer Segments へ反映
+4. Forces 集計から BMC.Value Propositions の根拠データ化
+
+## Relation 仕様
+
+### BMC ↔ VPC（双方向）
+- 多重度: 1対多（1BMCに複数VPC）
+- 必須: ❌
+
+### BMC → TagDictionary
+- 多重度: 多対多
+- 必須: ❌
+
+## BMC作成の単位
+- 1事業 = 1 BMC が基本
+- 複数サービスラインがある場合のみサービス単位に分割
+- 事業のピボット時はバージョン番号を更新
+
+## バージョン管理
+- `バージョン` プロパティで世代管理
+- 確定後の大幅修正は新バージョン作成（旧版は `アーカイブ`）
+
+## 推奨ビュー
+
+### Tier 1
+- All BMC (Table)
+- 確定済み (Table, フィルタ: ステータス=確定)
+
+### Tier 2
+- 事業ステージ別 (Board, グループ: 事業ステージ)
+- バージョン履歴 (Table, グループ: 事業名, ソート: バージョン降順)
+
+## 関連ドキュメント
+- [SPECIFICATION.md](../SPECIFICATION.md)
+- [vpc-db-schema.md](./vpc-db-schema.md)
+- [docs/integration/bmc-db-connection.md](../docs/integration/bmc-db-connection.md)
+```
+
+## Phase 5: SPECIFICATION.md §2.2 更新（承認時のみ）
+
+既存の §2.2「接続先DB」表を以下に更新:
+
+```markdown
+| DB名 | 論理名 | 必須/任意 | 用途 | スキーマ |
+|---|---|---|---|---|
+| Insight | insight | （本DB） | 顧客の生の声を管理 | schemas/insight-db-schema.md |
+| Job | job | 必須 | insight が紐づく Job | schemas/job-db-schema.md |
+| TagDictionary | tag_dictionary | 必須 | 横断的タグ管理 | schemas/property-definitions.md |
+| VPC | vpc | 推奨 | バリュープロポジションキャンバス | schemas/vpc-db-schema.md |
+| BMC | bmc | 推奨 | ビジネスモデルキャンバス | schemas/bmc-db-schema.md |
+```
+
+## Phase 6: schemas/relations.md 更新（承認時のみ）
+
+既存の relations.md に以下のセクションを追加:
+
+```markdown
+## Job ↔ VPC Relation
+
+| 項目 | 仕様 |
+|---|---|
+| 接続元 | Job DB |
+| 接続先 | VPC DB |
+| 多重度 | 1対多（1jobに複数VPC） |
+| 必須 | ❌ |
+| 双方向 | ✅ |
+
+## VPC ↔ BMC Relation
+
+| 項目 | 仕様 |
+|---|---|
+| 接続元 | VPC DB |
+| 接続先 | BMC DB |
+| 多重度 | 多対1（複数VPCが1BMCに紐付く） |
+| 必須 | ❌ |
+| 双方向 | ✅ |
+
+## 全DB間の Relation 全体図
+
+[既存の図を更新]
+```
+
+## Phase 7: README.md ディレクトリ構造更新（承認時のみ）
+
+README.md の該当セクションに以下を反映:
+
+```
+schemas/
+├── README.md
+├── insight-db-schema.md
+├── job-db-schema.md       🆕
+├── vpc-db-schema.md       🆕
+├── bmc-db-schema.md       🆕
+├── property-definitions.md
+├── select-options.md
+└── relations.md
+```
+
+## Phase 8: コミット & PR（承認時のみ）
+
+AK1RA の指示に従って以下を実施:
+1. コミット作成（推奨メッセージ: `feat: add job/vpc/bmc DB schema files`）
+2. PR作成 or main直push（Phase 0 で確認した方針に従う）
+3. AK1RA に PR URL を報告
+
+## Phase 9: 完了報告
+
+- 作成ファイル一覧
+- 更新ファイル一覧
+- コミット/PR URL
+- 残課題（Notion DecisionCache の SPECIFICATION ページ同期等）
+
+## Forbidden Actions
+
+1. AK1RA の承認なしに既存ファイルを上書き・削除
+2. main ブランチへの直push（AK1RA が許可した場合を除く）
+3. 既存の SPECIFICATION.md / property-definitions.md / select-options.md の構造を破壊する変更
+4. Insight DB / TagDictionary に関する変更（スコープ外）
+5. プロパティ名・Select候補の独自追加・改変
+6. DB名と論理名の混同
+7. Title プロパティに手動採番ID を入力させる設計
+8. 推測でURLや内部リンクを生成
+9. Notion DecisionCache ページの編集（GitHub repo更新が先）
+
+## エラーハンドリング
+
+- GitHub MCP エラー: AK1RA に報告、手動操作も検討
+- 既存ファイルの構造把握失敗: AK1RA に該当ファイルの内容貼付を依頼
+- マージコンフリクト: AK1RA に解決方法を確認
+- 仕様の曖昧さ: 自己解釈せず GitHub 既存ファイル再取得 → AK1RA 確認
+
+## 出力フォーマット
+
+各 Phase 開始時:
+```
+## Phase X: [名前]
+### 実行内容
+- ...
+### 確認事項
+- ...
+→ 実行してよろしいですか？
+```
+
+各 Phase 完了時:
+```
+## Phase X 完了
+### 実行結果
+- ✅ ...
+### 作成物
+- ファイル: ...
+- コミット: ...
+→ Phase X+1 に進んでよろしいですか？
+```
+
+---
+
+Phase 0 から開始してください。
+
+---
+
+_**Agent (claude-opus-4-6)**_
+
+<think><details><summary>Thought Process</summary>
+The user wants me to execute a multi-phase plan to add Job DB, VPC DB, and BMC DB schema files to the jtbd-insight-db repository. Let me start with Phase 0: confirming the current state of the repo and asking for branch strategy/commit preferences.
+
+Let me read the current state of the relevant files first.</details></think>
+
+_**Agent (claude-opus-4-6)**_
+
+## Phase 0: 前提確認
+
+### 実行内容
+
+1. GitHub repo（ローカル）の現状確認
+2. 既存ファイルのフォーマット・スタイル把握
+3. AK1RA にブランチ戦略・コミット方針を確認
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git status && git log --oneline -5 && git branch -vv</summary>
+
+```bash
+cd /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db && git status && git log --oneline -5 && git branch -vv
+```
+
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	modified:   .specstory/history/2026-05-03_08-06-03Z-repository-file-integrity-check.md
+	modified:   .specstory/statistics.json
+	modified:   CHANGELOG.md
+	deleted:    LICENCE.md
+	modified:   SPECIFICATION.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+867b204 chore: merge GitHub initial commit with local specification tree
+ee720be feat: initial insight DB specification and documentation
+822d6d1 Initial commit
+* main 867b204 [origin/main] chore: merge GitHub initial commit with local specification tree
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls -la /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/</summary>
+
+```bash
+ls -la /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/
+```
+
+```
+total 144
+drwxr-xr-x@  6 ak1ra  staff    192 May  3 16:56 .
+drwxr-xr-x@ 14 ak1ra  staff    448 May  3 18:58 ..
+-rw-r--r--@  1 ak1ra  staff  16924 May  3 17:55 insight-db-schema.md
+-rw-r--r--@  1 ak1ra  staff  17337 May  3 17:54 property-definitions.md
+-rw-r--r--@  1 ak1ra  staff  13753 May  3 17:54 relations.md
+-rw-r--r--@  1 ak1ra  staff  12908 May  3 17:54 select-options.md
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls -la /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/integration/</summary>
+
+```bash
+ls -la /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/docs/integration/
+```
+
+```
+total 32
+drwxr-xr-x@ 6 ak1ra  staff  192 May  3 16:40 .
+drwxr-xr-x@ 7 ak1ra  staff  224 May  3 16:39 ..
+-rw-r--r--@ 1 ak1ra  staff  178 May  3 16:40 bmc-db-connection.md
+-rw-r--r--@ 1 ak1ra  staff  396 May  3 16:40 job-db-connection.md
+-rw-r--r--@ 1 ak1ra  staff  365 May  3 16:48 tag-dictionary-connection.md
+-rw-r--r--@ 1 ak1ra  staff  281 May  3 16:48 vpc-db-connection.md
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/SPECIFICATION.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/relations.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ak1ra/Documents/02.Area/Cursor/projects/jtbd-insight-db/schemas/insight-db-schema.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (claude-opus-4-6)**_
+
+### Phase 0 確認結果
+
+**1. 既存ファイル構造**
+
+| パス | 状態 |
+|------|------|
+| `schemas/insight-db-schema.md` | 存在（v2.0） |
+| `schemas/property-definitions.md` | 存在（insight 用） |
+| `schemas/select-options.md` | 存在（insight 用） |
+| `schemas/relations.md` | 存在（insight ↔ job / TagDictionary。全体図に VPC / BMC の枠あり） |
+| `docs/integration/job-db-connection.md` | 存在 |
+| `docs/integration/vpc-db-connection.md` | 存在 |
+| `docs/integration/bmc-db-connection.md` | 存在 |
+
+**2. SPECIFICATION.md §2.2 現状**
+
+- DB名が `job` / `TagDictionary` / `VPC` / `BMC` と記載。
+- 「論理名」列・スキーマリンク列はまだ無い。
+
+**3. 未コミットの変更**
+
+- 前回の §7.4 推奨ビュー追加、CHANGELOG 更新（`SPECIFICATION.md` / `CHANGELOG.md`）
+- `LICENCE.md` の削除（`LICENSE` に集約済み）
+- `.specstory` の自動更新
+
+**4. スタイル**（`insight-db-schema.md` を基準）
+
+- 冒頭に `> **File**: ...` / `**Version**: ...` / `**Last Updated**: ...`
+- `---` で区切り
+- `## セクション名` → `### サブ`
+- 表はパイプ表記
+
+### 確認事項（Phase 0 → AK1RA 承認）
+
+_**Agent (claude-opus-4-6)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ask_question">
+<details>
+<summary>Tool use: **ask_question**</summary>
+
+Status: **loading**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ask_question"><details>
+<summary>Tool use: **ask_question**</summary>
+
+</details></tool-use>

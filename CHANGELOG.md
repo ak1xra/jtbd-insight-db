@@ -6,10 +6,20 @@
 
 ## [Unreleased]
 
+### Added
+
+- `schemas/job-db-schema.md` — Job DB スキーマ（v1.0）: JTBD Job 管理、ODI 機会スコア
+- `schemas/vpc-db-schema.md` — VPC DB スキーマ（v1.0）: Value Proposition Canvas、Forces→VPC マッピング
+- `schemas/bmc-db-schema.md` — BMC DB スキーマ（v1.0）: Business Model Canvas 9ブロック
+- `schemas/relations.md` に Job ↔ VPC / VPC ↔ BMC の Relation 仕様を追加
+- `SPECIFICATION.md` §2.2 に論理名・スキーマリンク列を追加
+- `README.md` にディレクトリ構造セクション、連携DB表を追加
+
 ### Documentation
 
 - ドキュメント間の入力フロー・`job` 必須性・`Forces` 条件付き必須を整合
 - `CHANGELOG.md` / `LICENSE` を追加し、README・SPEC からの参照を明確化
+- `SPECIFICATION.md` §7.4 に **推奨ビュー仕様**（Tier 1〜3、計 12 ビュー）を追加。デフォルトビューは `戦略候補` に統一
 
 ## [2.0] - 2026-05-03
 

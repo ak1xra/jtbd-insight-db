@@ -9,7 +9,7 @@
 
 ## 概要
 
-`insight` DB と他DBとの Relation 設計を定義する。
+本リポジトリで管理する全 DB 間の Relation 設計を定義する。
 
 ---
 
@@ -17,7 +17,7 @@
 
 ```
 ┌──────────────────────────────────┐
-│         insight DB               │
+│           insight DB              │
 │  (一次情報・Forces・ジャーニー段階) │
 └────────┬───────────────┬─────────┘
          │               │
@@ -25,20 +25,23 @@
          │ (多対1)       │ (多対多)
          ▼               ▼
    ┌──────────┐   ┌─────────────────┐
-   │  job DB  │   │ TagDictionary DB │
+   │  Job DB  │──▶│ TagDictionary DB │◀── 全DB共通
    └────┬─────┘   └─────────────────┘
         │
-        │ (多対1)
+        │ 関連VPC (1対多)
         ▼
    ┌──────────┐
    │  VPC DB  │
    └────┬─────┘
         │
-        │ (多対1)
+        │ 関連BMC (多対1)
         ▼
    ┌──────────┐
    │  BMC DB  │
    └──────────┘
+
+※ すべての Relation は双方向
+※ TagDictionary は Insight / Job / VPC / BMC すべてから接続可
 ```
 
 ---
@@ -47,8 +50,15 @@
 
 | # | Relation名 | 接続元 | 接続先 | 多重度 | 必須 | 双方向 |
 |---|---|---|---|---|---|---|
-| 1 | [insight.job](#1-insightjob--job-db) | insight | job | 多対1 | ✅（段階的） | ✅ |
-| 2 | [insight.タグ](#2-insightタグ--tagdictionary) | insight | TagDictionary | 多対多 | ❌ | ✅ |
+| 1 | [insight.job](#1-insightjob--job-db) | Insight | Job | 多対1 | ✅（段階的） | ✅ |
+| 2 | [insight.タグ](#2-insightタグ--tagdictionary) | Insight | TagDictionary | 多対多 | ❌ | ✅ |
+| 3 | [job.関連VPC](#3-job関連vpc--vpc-db) | Job | VPC | 1対多 | ❌ | ✅ |
+| 4 | [vpc.対象job](#3-job関連vpc--vpc-db) | VPC | Job | 多対1 | ✅ | ✅ |
+| 5 | [vpc.関連BMC](#4-vpc関連bmc--bmc-db) | VPC | BMC | 多対1 | ❌ | ✅ |
+| 6 | [bmc.関連VPC](#4-vpc関連bmc--bmc-db) | BMC | VPC | 1対多 | ❌ | ✅ |
+| 7 | job.タグ | Job | TagDictionary | 多対多 | ❌ | ❌ |
+| 8 | vpc.タグ | VPC | TagDictionary | 多対多 | ❌ | ❌ |
+| 9 | bmc.タグ | BMC | TagDictionary | 多対多 | ❌ | ❌ |
 
 ---
 
@@ -227,39 +237,87 @@ TagDictionary DB:
 
 ---
 
-## 間接的な関連DB
+## 3. job.関連VPC → VPC DB
 
-直接Relationはないが、insight DBから派生・接続される下流DB。
+### 概要
+Job に紐づく VPC を示す。1つの Job に対して、顧客セグメント別に複数 VPC を作成できる。
 
-### VPC DB（Value Proposition Canvas）
+### 仕様
+
+| 項目 | 仕様 |
+|---|---|
+| **接続元プロパティ** | `job.関連VPC` |
+| **接続先DB** | `VPC`（論理名: `vpc`） |
+| **接続先プロパティ** | `vpc.対象job` |
+| **多重度** | 1対多（1つの Job に複数 VPC） |
+| **必須** | ❌（Job 作成時は VPC 未接続でも可） |
+| **双方向** | ✅（VPC 側に `対象job` プロパティ） |
+| **スキーマ** | [job-db-schema.md](./job-db-schema.md) / [vpc-db-schema.md](./vpc-db-schema.md) |
+
+### VPC 側の必須性
+VPC.対象job は **✅ 必須**。VPC は必ず 1つの Job に紐づく必要がある。
+
+### 設計理由
+- VPC は Job 単位で作成される（1 job × 1 顧客セグメント = 1 VPC）
+- 同じ Job でも顧客セグメントが異なれば別 VPC
+- Job 側からは任意（VPC を後から作成する運用を許容）
+
+---
+
+## 4. vpc.関連BMC → BMC DB
+
+### 概要
+VPC が紐づく BMC を示す。1つの BMC に複数 VPC が紐付く（Customer Segments / Value Propositions の根拠）。
+
+### 仕様
+
+| 項目 | 仕様 |
+|---|---|
+| **接続元プロパティ** | `vpc.関連BMC` |
+| **接続先DB** | `BMC`（論理名: `bmc`） |
+| **接続先プロパティ** | `bmc.関連VPC` |
+| **多重度** | 多対1（複数 VPC が 1 BMC に紐付く） |
+| **必須** | ❌ |
+| **双方向** | ✅（BMC 側に `関連VPC` プロパティ） |
+| **スキーマ** | [vpc-db-schema.md](./vpc-db-schema.md) / [bmc-db-schema.md](./bmc-db-schema.md) |
+
+### 設計理由
+- BMC は事業単位で作成され、その事業に含まれる複数 VPC を集約する
+- VPC.Customer Segments → BMC.Customer Segments、VPC.Value Propositions → BMC.Value Propositions への転記根拠となる
+
+---
+
+## Insight → VPC / BMC の間接的な接続経路
+
+Insight DB から VPC / BMC への直接 Relation はないが、Job を介して間接的に接続される。
+
+### Insight → VPC
 
 | 項目 | 内容 |
 |---|---|
-| **接続経路** | insight → job → VPC |
-| **データ流** | insight.Forces → job.related_insight → VPC.Pains/Gains |
-| **接続方法** | jobを介して間接接続 |
+| **接続経路** | Insight → Job → VPC |
+| **データ流** | insight.Forces → job.関連insight → VPC.Pains/Gains |
 
 #### Forces → VPC マッピング
 
-| insight.Forces | VPC接続先 | 変換ロジック |
+| Insight.Forces | VPC接続先 | 変換ロジック |
 |---|---|---|
 | `Push` | VPC.Pains | 不満・問題をPainとして抽出 |
 | `Pull` | VPC.Gains | 期待・望む結果をGainとして抽出 |
 | `Anxiety` | VPC.Pains（心理的痛み） | 不安をPainとして抽出 |
-| `Habit` | job.現状代替手段 | 現状維持要因を代替手段として記録 |
+| `Habit` | Job.現状代替手段 | 現状維持要因を代替手段として記録 |
 
-### BMC DB（Business Model Canvas）
+### Insight → BMC
 
 | 項目 | 内容 |
 |---|---|
-| **接続経路** | insight → job → VPC → BMC |
+| **接続経路** | Insight → Job → VPC → BMC |
 | **データ流** | 顧客属性 × ジャーニー段階 → BMC.Customer Segments |
-| **接続方法** | VPCを介して間接接続 |
 
-#### insight → BMC 接続フロー
+#### Insight → BMC 接続フロー
 
 ```
-1. insight 確定（重要度4以上 + 確からしさ4以上）
+1. Insight 確定（重要度4以上 + 確からしさ4以上）
    ↓
 2. 顧客属性 × ジャーニー段階 で集計
    ↓
@@ -331,10 +389,12 @@ TagDictionary DB:
 
 #### `VPC` DB
 - 推奨（戦略立案で使用）
+- スキーマ: [schemas/vpc-db-schema.md](./vpc-db-schema.md)
 - 詳細: [docs/integration/vpc-db-connection.md](../docs/integration/vpc-db-connection.md)
 
 #### `BMC` DB
 - 推奨（戦略立案で使用）
+- スキーマ: [schemas/bmc-db-schema.md](./bmc-db-schema.md)
 - 詳細: [docs/integration/bmc-db-connection.md](../docs/integration/bmc-db-connection.md)
 
 ---
@@ -390,9 +450,13 @@ TagDictionary DB:
 ## 関連ドキュメント
 
 - [SPECIFICATION.md](../SPECIFICATION.md) - 全体仕様
+- [insight-db-schema.md](./insight-db-schema.md) - Insight DB スキーマ
+- [job-db-schema.md](./job-db-schema.md) - Job DB スキーマ
+- [vpc-db-schema.md](./vpc-db-schema.md) - VPC DB スキーマ
+- [bmc-db-schema.md](./bmc-db-schema.md) - BMC DB スキーマ
 - [property-definitions.md](./property-definitions.md) - プロパティ詳細
 - [select-options.md](./select-options.md) - Select候補値定義
-- [docs/integration/job-db-connection.md](../docs/integration/job-db-connection.md) - job DB接続詳細
+- [docs/integration/job-db-connection.md](../docs/integration/job-db-connection.md) - Job DB接続詳細
 - [docs/integration/vpc-db-connection.md](../docs/integration/vpc-db-connection.md) - VPC DB接続詳細
 - [docs/integration/bmc-db-connection.md](../docs/integration/bmc-db-connection.md) - BMC DB接続詳細
 - [docs/integration/tag-dictionary-connection.md](../docs/integration/tag-dictionary-connection.md) - TagDictionary接続詳細

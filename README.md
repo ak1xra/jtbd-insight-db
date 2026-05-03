@@ -110,12 +110,39 @@ JTBD（Jobs to be Done）と Forces of Progress に沿って顧客インサイ�
 
 詳細は [docs/governance/human-in-the-point.md](./docs/governance/human-in-the-point.md) を参照してください。
 
+## ディレクトリ構造
+
+```
+jtbd-insight-db/
+├── SPECIFICATION.md          # 仕様の正本
+├── CHANGELOG.md
+├── README.md
+├── LICENSE
+├── schemas/
+│   ├── insight-db-schema.md  # Insight DB スキーマ
+│   ├── job-db-schema.md      # Job DB スキーマ
+│   ├── vpc-db-schema.md      # VPC DB スキーマ
+│   ├── bmc-db-schema.md      # BMC DB スキーマ
+│   ├── property-definitions.md
+│   ├── select-options.md
+│   └── relations.md          # 全DB間の Relation 設計
+├── docs/
+│   ├── ai-prompts/           # AI autofill プロンプト
+│   ├── architecture/         # アーキテクチャ設計
+│   ├── governance/           # ガバナンス・運用ポリシー
+│   ├── integration/          # 他DB接続ドキュメント
+│   └── operations/           # 運用手順
+└── .specstory/
+```
+
 ## 連携（他 DB）
 
-- [job DB](./docs/integration/job-db-connection.md): insight が紐づく Job
-- [VPC DB](./docs/integration/vpc-db-connection.md): Forces と Pains / Gains の対応
-- [BMC DB](./docs/integration/bmc-db-connection.md): 顧客属性とジャーニー段階の扱い
-- [TagDictionary](./docs/integration/tag-dictionary-connection.md): 横断タグ
+| DB名 | 論理名 | スキーマ | 接続詳細 |
+|---|---|---|---|
+| Job | `job` | [schemas/job-db-schema.md](./schemas/job-db-schema.md) | [接続仕様](./docs/integration/job-db-connection.md) |
+| VPC | `vpc` | [schemas/vpc-db-schema.md](./schemas/vpc-db-schema.md) | [接続仕様](./docs/integration/vpc-db-connection.md) |
+| BMC | `bmc` | [schemas/bmc-db-schema.md](./schemas/bmc-db-schema.md) | [接続仕様](./docs/integration/bmc-db-connection.md) |
+| TagDictionary | `tag_dictionary` | — | [接続仕様](./docs/integration/tag-dictionary-connection.md) |
 
 ## 運用ドキュメント
 
