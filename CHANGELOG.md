@@ -14,6 +14,9 @@
 - `schemas/relations.md` に Job ↔ VPC / VPC ↔ BMC の Relation 仕様を追加
 - `SPECIFICATION.md` §2.2 に論理名・スキーマリンク列を追加
 - `README.md` にディレクトリ構造セクション、連携DB表を追加
+- `docs/integration/` の job/vpc/bmc 接続ドキュメントを新スキーマに整合（プレースホルダ解消）
+- `schemas/property-definitions.md` に Job/VPC/BMC プロパティ詳細（Part 2〜4）を追加
+- `schemas/select-options.md` に Job/VPC/BMC Select 候補値を統合管理
 
 ### Documentation
 

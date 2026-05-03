@@ -9,9 +9,20 @@
 
 ## 概要
 
-`insight` DB の全17プロパティの詳細定義。各プロパティの型・必須性・バリデーション・AI autofill 仕様・運用ルールを記載する。
+本リポジトリで管理する全 DB のプロパティ詳細定義。型・必須性・バリデーション・AI autofill 仕様・運用ルールを記載する。
+
+| DB | 論理名 | プロパティ数 | スキーマ |
+|---|---|---|---|
+| Insight | `insight` | 17 | [insight-db-schema.md](./insight-db-schema.md) |
+| Job | `job` | 17 | [job-db-schema.md](./job-db-schema.md) |
+| VPC | `vpc` | 18 | [vpc-db-schema.md](./vpc-db-schema.md) |
+| BMC | `bmc` | 18 | [bmc-db-schema.md](./bmc-db-schema.md) |
 
 ---
+
+---
+
+# Part 1: Insight DB プロパティ詳細
 
 ## プロパティ一覧
 
@@ -582,9 +593,758 @@ Human-in-the-Point の観点では、**AI 提案（Step 5）の前に人が付�
 
 ---
 
+---
+---
+
+# Part 2: Job DB プロパティ詳細
+
+> スキーマ全量: [job-db-schema.md](./job-db-schema.md)
+
+## プロパティ一覧（Job）
+
+| # | プロパティ名 | 型 | 必須 |
+|---|---|---|---|
+| 1 | [job_summary](#j1-job_summary) | Title | ✅ |
+| 2 | [Job ID](#j2-job-id) | Unique ID | ✅ |
+| 3 | [job_statement](#j3-job_statement) | Text | ✅ |
+| 4 | [situation](#j4-situation) | Text | ✅ |
+| 5 | [motivation](#j5-motivation) | Text | ✅ |
+| 6 | [outcome](#j6-outcome) | Text | ✅ |
+| 7 | [job_type](#j7-job_type) | Select | ❌ |
+| 8 | [現状代替手段](#j8-現状代替手段) | Text | ❌ |
+| 9 | [重要度](#j9-重要度) | Number | ✅ |
+| 10 | [満足度](#j10-満足度) | Number | ❌ |
+| 11 | [機会スコア](#j11-機会スコア) | Formula | ❌ |
+| 12 | [関連insight](#j12-関連insight) | Relation | ❌ |
+| 13 | [関連VPC](#j13-関連vpc) | Relation | ❌ |
+| 14 | [タグ](#j14-タグ) | Relation | ❌ |
+| 15 | [ステータス](#j15-ステータス) | Select | ✅ |
+| 16 | [作成日](#j16-作成日) | Date | ✅ |
+| 17 | [更新日](#j17-更新日) | Date | ❌ |
+
+---
+
+## J1. job_summary
+
+| 項目 | 値 |
+|---|---|
+| **型** | Title |
+| **必須** | ✅ |
+| **AI autofill** | ❌ |
+
+### 用途
+Job の簡潔な要約。一覧ビューでの識別に使用。
+
+### バリデーション
+- 最大 25 文字
+- 顧客の Job を端的に表現
+
+### OK例
+- ✅ 「月次レポート作成の自動化」
+- ✅ 「社内承認フローの短縮」
+
+### NG例
+- ❌ 「顧客が困っている問題について」（抽象的）
+- ❌ 「レポート」（粒度が粗すぎる）
+
+---
+
+## J2. Job ID
+
+| 項目 | 値 |
+|---|---|
+| **型** | Unique ID |
+| **必須** | ✅（自動） |
+| **プレフィックス** | `JOB-` |
+
+自動採番。手動入力禁止。
+
+---
+
+## J3. job_statement
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+### フォーマット（厳守）
+```
+When [situation], I want to [motivation], so I can [outcome]
+```
+
+### バリデーション
+- 3 パート（situation / motivation / outcome）がすべて含まれていること
+- `situation`, `motivation`, `outcome` プロパティの内容と一致すること
+
+### OK例
+- ✅ "When preparing monthly reports manually, I want to automate data aggregation, so I can focus on analysis"
+
+### NG例
+- ❌ "I want better reports"（situation / outcome が欠落）
+
+---
+
+## J4. situation
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+job_statement の "When [situation]" 部分を独立プロパティとして保持。集計・検索用。
+
+---
+
+## J5. motivation
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+job_statement の "I want to [motivation]" 部分。
+
+---
+
+## J6. outcome
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+job_statement の "so I can [outcome]" 部分。
+
+---
+
+## J7. job_type
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ❌ |
+
+### 候補値
+詳細は [select-options.md](./select-options.md#job_type) を参照。
+
+| 値 | 定義 |
+|---|---|
+| `Functional` | 機能的な Job（タスク完遂） |
+| `Emotional` | 感情的な Job（気分・自己認識） |
+| `Social` | 社会的な Job（他者からの認識） |
+
+### 判定ルール
+- 1 つの Job は 1 つの type を持つ
+- 複合的な場合は主要な側面を選択
+- 判定が難しい場合は空欄可
+
+---
+
+## J8. 現状代替手段
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ❌ |
+
+### 用途
+顧客が Job を片付けるために現在使っている手段。Insight の `Habit` Forces から導出される。
+
+### 入力例
+- 「Excel で手動集計」
+- 「紙の申請書 + 社内便」
+
+---
+
+## J9. 重要度
+
+| 項目 | 値 |
+|---|---|
+| **型** | Number |
+| **必須** | ✅ |
+| **範囲** | 1〜5（整数） |
+
+ODI 機会スコアの入力値。顧客にとっての Job の重要度を評価。
+
+---
+
+## J10. 満足度
+
+| 項目 | 値 |
+|---|---|
+| **型** | Number |
+| **必須** | ❌ |
+| **範囲** | 1〜5（整数） |
+
+ODI 機会スコアの入力値。現状の解決策に対する満足度。
+
+---
+
+## J11. 機会スコア
+
+| 項目 | 値 |
+|---|---|
+| **型** | Formula |
+| **必須** | ❌（自動算出） |
+
+### 算出式
+```
+opportunity_score = 重要度 + max(0, 重要度 - 満足度)
+```
+
+ODI（Outcome-Driven Innovation）に準拠。スコアが高いほど市場機会が大きい。
+
+---
+
+## J12. 関連insight
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | Insight DB |
+| **多重度** | 1対多 |
+| **双方向** | ✅ |
+
+詳細: [relations.md §1](./relations.md#1-insightjob--job-db)
+
+---
+
+## J13. 関連VPC
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | VPC DB |
+| **多重度** | 1対多 |
+| **双方向** | ✅ |
+
+詳細: [relations.md §3](./relations.md#3-job関連vpc--vpc-db)
+
+---
+
+## J14. タグ
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | TagDictionary |
+| **多重度** | 多対多 |
+
+---
+
+## J15. ステータス
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ✅ |
+| **デフォルト値** | `仮説` |
+
+### 候補値
+詳細は [select-options.md](./select-options.md#job-ステータス) を参照。
+
+| 値 | 定義 |
+|---|---|
+| `仮説` | insight 不足、未検証 |
+| `検証中` | insight 収集中 |
+| `確定` | 戦略立案に使用可 |
+| `棄却` | 検証の結果、不採用 |
+
+### 状態遷移
+```
+[新規作成] → 仮説 → 検証中 → 確定
+                               → 棄却
+```
+
+---
+
+## J16. 作成日
+
+| 項目 | 値 |
+|---|---|
+| **型** | Date |
+| **必須** | ✅ |
+
+---
+
+## J17. 更新日
+
+| 項目 | 値 |
+|---|---|
+| **型** | Date |
+| **必須** | ❌ |
+
+---
+---
+
+# Part 3: VPC DB プロパティ詳細
+
+> スキーマ全量: [vpc-db-schema.md](./vpc-db-schema.md)
+
+## プロパティ一覧（VPC）
+
+| # | プロパティ名 | 型 | 必須 |
+|---|---|---|---|
+| 1 | [VPC名](#v1-vpc名) | Title | ✅ |
+| 2 | [VPC ID](#v2-vpc-id) | Unique ID | ✅ |
+| 3 | [対象job](#v3-対象job) | Relation | ✅ |
+| 4 | [顧客セグメント](#v4-顧客セグメント) | Text | ✅ |
+| 5 | [Customer Jobs](#v5-customer-jobs) | Text | ✅ |
+| 6 | [Pains](#v6-pains) | Text | ✅ |
+| 7 | [Gains](#v7-gains) | Text | ✅ |
+| 8 | [Products & Services](#v8-products--services) | Text | ✅ |
+| 9 | [Pain Relievers](#v9-pain-relievers) | Text | ✅ |
+| 10 | [Gain Creators](#v10-gain-creators) | Text | ✅ |
+| 11 | [Pain重要度](#v11-pain重要度) | Select | ❌ |
+| 12 | [Gain重要度](#v12-gain重要度) | Select | ❌ |
+| 13 | [Fit評価](#v13-fit評価) | Select | ❌ |
+| 14 | [関連BMC](#v14-関連bmc) | Relation | ❌ |
+| 15 | [タグ](#v15-タグ) | Relation | ❌ |
+| 16 | [ステータス](#v16-ステータス) | Select | ✅ |
+| 17 | [作成日](#v17-作成日) | Date | ✅ |
+| 18 | [更新日](#v18-更新日) | Date | ❌ |
+
+---
+
+## V1. VPC名
+
+| 項目 | 値 |
+|---|---|
+| **型** | Title |
+| **必須** | ✅ |
+
+### 命名規則
+`[セグメント名]向け [job要約]` 形式。
+
+### OK例
+- ✅ 「中小企業経理向け 月次レポート自動化」
+- ✅ 「SaaS導入推進者向け 承認フロー短縮」
+
+---
+
+## V2. VPC ID
+
+| 項目 | 値 |
+|---|---|
+| **型** | Unique ID |
+| **必須** | ✅（自動） |
+| **プレフィックス** | `VPC-` |
+
+---
+
+## V3. 対象job
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | Job DB |
+| **必須** | ✅ |
+| **多重度** | 多対1 |
+| **双方向** | ✅ |
+
+VPC 作成時に必ず 1 つの Job を接続する。
+
+---
+
+## V4. 顧客セグメント
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+対象とする顧客像を記述。VPC 名の `[セグメント名]` 部分の詳細版。
+
+---
+
+## V5. Customer Jobs
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+接続先 Job の要約。`対象job` Relation で接続した Job の `job_statement` を要約・転記。
+
+---
+
+## V6. Pains
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+顧客の痛み。Insight の `Push` / `Anxiety` Forces から集約。
+
+---
+
+## V7. Gains
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+顧客の利得。Insight の `Pull` Forces から集約。
+
+---
+
+## V8. Products & Services
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+Pains/Gains に対して提供する製品・サービスの記述。
+
+---
+
+## V9. Pain Relievers
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+Pains を緩和する手段。Products & Services と対応づける。
+
+---
+
+## V10. Gain Creators
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+Gains を生み出す手段。Products & Services と対応づける。
+
+---
+
+## V11. Pain重要度
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ❌ |
+
+候補値: `High` / `Medium` / `Low`。詳細は [select-options.md](./select-options.md#vpc-pain重要度--gain重要度)。
+
+---
+
+## V12. Gain重要度
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ❌ |
+
+候補値: `High` / `Medium` / `Low`。詳細は [select-options.md](./select-options.md#vpc-pain重要度--gain重要度)。
+
+---
+
+## V13. Fit評価
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ❌ |
+
+候補値: `Problem-Solution Fit` / `Product-Market Fit` / `検証中`。詳細は [select-options.md](./select-options.md#vpc-fit評価)。
+
+---
+
+## V14. 関連BMC
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | BMC DB |
+| **必須** | ❌ |
+| **多重度** | 多対1 |
+| **双方向** | ✅ |
+
+詳細: [relations.md §4](./relations.md#4-vpc関連bmc--bmc-db)
+
+---
+
+## V15. タグ
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | TagDictionary |
+| **多重度** | 多対多 |
+
+---
+
+## V16. ステータス
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ✅ |
+| **デフォルト値** | `ドラフト` |
+
+候補値: `ドラフト` / `レビュー中` / `確定`。詳細は [select-options.md](./select-options.md#vpc-ステータス)。
+
+---
+
+## V17. 作成日
+
+| 項目 | 値 |
+|---|---|
+| **型** | Date |
+| **必須** | ✅ |
+
+---
+
+## V18. 更新日
+
+| 項目 | 値 |
+|---|---|
+| **型** | Date |
+| **必須** | ❌ |
+
+---
+---
+
+# Part 4: BMC DB プロパティ詳細
+
+> スキーマ全量: [bmc-db-schema.md](./bmc-db-schema.md)
+
+## プロパティ一覧（BMC）
+
+| # | プロパティ名 | 型 | 必須 |
+|---|---|---|---|
+| 1 | [事業名](#b1-事業名) | Title | ✅ |
+| 2 | [BMC ID](#b2-bmc-id) | Unique ID | ✅ |
+| 3 | [Customer Segments](#b3-customer-segments) | Text | ✅ |
+| 4 | [Value Propositions](#b4-value-propositions) | Text | ✅ |
+| 5 | [Channels](#b5-channels) | Text | ✅ |
+| 6 | [Customer Relationships](#b6-customer-relationships) | Text | ✅ |
+| 7 | [Revenue Streams](#b7-revenue-streams) | Text | ✅ |
+| 8 | [Key Resources](#b8-key-resources) | Text | ✅ |
+| 9 | [Key Activities](#b9-key-activities) | Text | ✅ |
+| 10 | [Key Partnerships](#b10-key-partnerships) | Text | ✅ |
+| 11 | [Cost Structure](#b11-cost-structure) | Text | ✅ |
+| 12 | [関連VPC](#b12-関連vpc) | Relation | ❌ |
+| 13 | [事業ステージ](#b13-事業ステージ) | Select | ❌ |
+| 14 | [バージョン](#b14-バージョン) | Text | ✅ |
+| 15 | [タグ](#b15-タグ) | Relation | ❌ |
+| 16 | [ステータス](#b16-ステータス) | Select | ✅ |
+| 17 | [作成日](#b17-作成日) | Date | ✅ |
+| 18 | [更新日](#b18-更新日) | Date | ❌ |
+
+---
+
+## B1. 事業名
+
+| 項目 | 値 |
+|---|---|
+| **型** | Title |
+| **必須** | ✅ |
+
+対象事業の名称。1 事業 = 1 BMC が基本。
+
+---
+
+## B2. BMC ID
+
+| 項目 | 値 |
+|---|---|
+| **型** | Unique ID |
+| **必須** | ✅（自動） |
+| **プレフィックス** | `BMC-` |
+
+---
+
+## B3. Customer Segments
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: 誰のために価値を創造するか。VPC の `顧客セグメント` から集約。
+
+---
+
+## B4. Value Propositions
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: 何の価値を提供するか。VPC の Customer Jobs / Pains / Gains / Pain Relievers / Gain Creators から集約。
+
+---
+
+## B5. Channels
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: どう届けるか。
+
+---
+
+## B6. Customer Relationships
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: どう関係を築くか。
+
+---
+
+## B7. Revenue Streams
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: どう収益を得るか。
+
+---
+
+## B8. Key Resources
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: 何が必要か。
+
+---
+
+## B9. Key Activities
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: 何をするか。
+
+---
+
+## B10. Key Partnerships
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: 誰と組むか。
+
+---
+
+## B11. Cost Structure
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+BMC 9ブロック: 何にコストがかかるか。
+
+---
+
+## B12. 関連VPC
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | VPC DB |
+| **必須** | ❌ |
+| **多重度** | 1対多 |
+| **双方向** | ✅ |
+
+詳細: [relations.md §4](./relations.md#4-vpc関連bmc--bmc-db)
+
+---
+
+## B13. 事業ステージ
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ❌ |
+
+候補値: `アイデア` / `検証` / `立ち上げ` / `成長` / `成熟`。詳細は [select-options.md](./select-options.md#bmc-事業ステージ)。
+
+---
+
+## B14. バージョン
+
+| 項目 | 値 |
+|---|---|
+| **型** | Text |
+| **必須** | ✅ |
+
+`v1.0` / `v2.0` 形式。確定後の大幅修正は新バージョン作成（旧版は `アーカイブ`）。
+
+---
+
+## B15. タグ
+
+| 項目 | 値 |
+|---|---|
+| **型** | Relation |
+| **接続先** | TagDictionary |
+| **多重度** | 多対多 |
+
+---
+
+## B16. ステータス
+
+| 項目 | 値 |
+|---|---|
+| **型** | Select |
+| **必須** | ✅ |
+| **デフォルト値** | `ドラフト` |
+
+候補値: `ドラフト` / `レビュー中` / `確定` / `アーカイブ`。詳細は [select-options.md](./select-options.md#bmc-ステータス)。
+
+---
+
+## B17. 作成日
+
+| 項目 | 値 |
+|---|---|
+| **型** | Date |
+| **必須** | ✅ |
+
+---
+
+## B18. 更新日
+
+| 項目 | 値 |
+|---|---|
+| **型** | Date |
+| **必須** | ❌ |
+
+---
+---
+
 ## 関連ドキュメント
 
 - [SPECIFICATION.md](../SPECIFICATION.md) - 全体仕様
+- [insight-db-schema.md](./insight-db-schema.md) - Insight DB スキーマ
+- [job-db-schema.md](./job-db-schema.md) - Job DB スキーマ
+- [vpc-db-schema.md](./vpc-db-schema.md) - VPC DB スキーマ
+- [bmc-db-schema.md](./bmc-db-schema.md) - BMC DB スキーマ
 - [select-options.md](./select-options.md) - Select選択肢の詳細定義
 - [relations.md](./relations.md) - Relation設計の詳細
 - [docs/ai-prompts/](../docs/ai-prompts/) - AI autofill プロンプト集

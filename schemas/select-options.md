@@ -9,11 +9,13 @@
 
 ## 概要
 
-`insight` DB の Select / Multi-select プロパティの全候補値を定義する。
+本リポジトリで管理する全 DB の Select / Multi-select プロパティの全候補値を定義する。
 
 ---
 
 ## 対象プロパティ
+
+### Insight DB
 
 | プロパティ | 型 | 候補数 |
 |---|---|---|
@@ -22,6 +24,28 @@
 | [Forces](#forces) | Multi-select | 4 |
 | [ジャーニー段階](#ジャーニー段階) | Select | 8 |
 | [レビュー状態](#レビュー状態) | Select | 3 |
+
+### Job DB
+
+| プロパティ | 型 | 候補数 |
+|---|---|---|
+| [job_type](#job_type) | Select | 3 |
+| [ステータス（Job）](#job-ステータス) | Select | 4 |
+
+### VPC DB
+
+| プロパティ | 型 | 候補数 |
+|---|---|---|
+| [Pain重要度 / Gain重要度](#vpc-pain重要度--gain重要度) | Select | 3 |
+| [Fit評価](#vpc-fit評価) | Select | 3 |
+| [ステータス（VPC）](#vpc-ステータス) | Select | 3 |
+
+### BMC DB
+
+| プロパティ | 型 | 候補数 |
+|---|---|---|
+| [事業ステージ](#bmc-事業ステージ) | Select | 5 |
+| [ステータス（BMC）](#bmc-ステータス) | Select | 4 |
 
 ---
 
@@ -291,6 +315,170 @@ JTBDの「Forces of Progress」モデル：
 
 ---
 
+---
+---
+
+# Job DB Select Options
+
+## job_type
+
+**型**: Select（単一選択）
+**必須**: ❌
+**所属DB**: Job
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#j7-job_type)
+
+### 候補値
+
+| 値 | カラー | 定義 | 判定基準 |
+|---|---|---|---|
+| `Functional` | Blue | 機能的な Job | タスクの完遂・効率化が目的 |
+| `Emotional` | Purple | 感情的な Job | 気分・自己認識・安心感が目的 |
+| `Social` | Green | 社会的な Job | 他者からの認識・評価が目的 |
+
+### 判定例
+
+| job_statement | job_type |
+|---|---|
+| 「月次レポートを自動化して時間を節約したい」 | `Functional` |
+| 「ミスなく業務をこなして安心したい」 | `Emotional` |
+| 「上司に認められる提案を出したい」 | `Social` |
+
+---
+
+## Job ステータス
+
+**型**: Select（単一選択）
+**必須**: ✅
+**デフォルト値**: `仮説`
+**所属DB**: Job
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#j15-ステータス)
+
+### 候補値
+
+| 値 | カラー | 定義 | 遷移条件 |
+|---|---|---|---|
+| `仮説` | Gray | insight 不足、未検証 | 初期状態 |
+| `検証中` | Yellow | insight 収集中 | 関連 insight が 2 件以上 |
+| `確定` | Green | 戦略立案に使用可 | insight 裏付け十分、レビュー完了 |
+| `棄却` | Red | 検証の結果、不採用 | 裏付け不足または誤り判明 |
+
+### 状態遷移
+
+```
+[新規作成] → 仮説 → 検証中 → 確定
+                             → 棄却
+```
+
+---
+---
+
+# VPC DB Select Options
+
+## VPC Pain重要度 / Gain重要度
+
+**型**: Select（単一選択）
+**必須**: ❌
+**所属DB**: VPC（`Pain重要度` と `Gain重要度` で共通候補値）
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#v11-pain重要度)
+
+### 候補値
+
+| 値 | カラー | 定義 |
+|---|---|---|
+| `High` | Red | 顧客にとって極めて重要。解決必須 |
+| `Medium` | Yellow | 重要だが代替手段あり |
+| `Low` | Gray | あれば嬉しい程度 |
+
+### 判定ルール
+- Insight の `重要度` スコアと関連 insight の件数を総合的に評価
+- `High`: 重要度 4〜5 の insight が複数紐づく
+- `Medium`: 重要度 3 の insight、または件数が少ない
+- `Low`: 重要度 1〜2、または根拠 insight が 1 件以下
+
+---
+
+## VPC Fit評価
+
+**型**: Select（単一選択）
+**必須**: ❌
+**所属DB**: VPC
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#v13-fit評価)
+
+### 候補値
+
+| 値 | カラー | 定義 | 判定基準 |
+|---|---|---|---|
+| `Problem-Solution Fit` | Yellow | Pains/Gains に対し Pain Relievers/Gain Creators が適合 | 仮説段階の適合確認 |
+| `Product-Market Fit` | Green | 市場検証済み | 実績データによる検証完了 |
+| `検証中` | Gray | 評価未完了 | 初期状態 |
+
+---
+
+## VPC ステータス
+
+**型**: Select（単一選択）
+**必須**: ✅
+**デフォルト値**: `ドラフト`
+**所属DB**: VPC
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#v16-ステータス)
+
+### 候補値
+
+| 値 | カラー | 定義 |
+|---|---|---|
+| `ドラフト` | Gray | 作成中 |
+| `レビュー中` | Yellow | レビュー実施中 |
+| `確定` | Green | 戦略立案に使用可 |
+
+---
+---
+
+# BMC DB Select Options
+
+## BMC 事業ステージ
+
+**型**: Select（単一選択）
+**必須**: ❌
+**所属DB**: BMC
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#b13-事業ステージ)
+
+### 候補値
+
+| 値 | カラー | 定義 | 主な活動 |
+|---|---|---|---|
+| `アイデア` | Gray | 構想段階 | 市場調査、仮説構築 |
+| `検証` | Yellow | PoC / MVP 実施中 | 実証実験、顧客インタビュー |
+| `立ち上げ` | Blue | ローンチ後 | 初期顧客獲得、運用開始 |
+| `成長` | Green | 拡大期 | スケール、マーケ強化 |
+| `成熟` | Purple | 安定期 | 効率化、次世代検討 |
+
+---
+
+## BMC ステータス
+
+**型**: Select（単一選択）
+**必須**: ✅
+**デフォルト値**: `ドラフト`
+**所属DB**: BMC
+**プロパティ詳細**: [property-definitions.md](./property-definitions.md#b16-ステータス)
+
+### 候補値
+
+| 値 | カラー | 定義 |
+|---|---|---|
+| `ドラフト` | Gray | 作成中 |
+| `レビュー中` | Yellow | レビュー実施中 |
+| `確定` | Green | 戦略実行に使用 |
+| `アーカイブ` | Default | 旧版保管（バージョン更新後） |
+
+### バージョン管理との関係
+- 確定後の大幅修正時は新バージョン（新レコード）を作成
+- 旧版のステータスを `アーカイブ` に変更
+- `バージョン` プロパティで世代管理
+
+---
+---
+
 ## 全体的な運用ルール
 
 ### Select 候補値の追加・変更ルール
@@ -302,7 +490,7 @@ JTBDの「Forces of Progress」モデル：
 2. **追加プロセス**:
    - 仮運用期間（1ヶ月）を設ける
    - 既存データへの影響を検証
-   - SPECIFICATION.md / property-definitions.md / select-options.md を同期更新
+   - SPECIFICATION.md / property-definitions.md / select-options.md / 該当スキーマファイルを同期更新
 
 3. **削除判断**:
    - 6ヶ月以上使用されていない候補
@@ -317,15 +505,19 @@ JTBDの「Forces of Progress」モデル：
 
 - 関連性のある候補は近い色相
 - 重要度の高い候補は鮮やかな色
-- `不明` `下書き` 等のデフォルト系は Gray
-- 危険・離脱系は Red 系
-- 完了・成功系は Green 系
+- `不明` `下書き` `ドラフト` 等のデフォルト系は Gray
+- 危険・離脱・棄却系は Red 系
+- 完了・成功・確定系は Green 系
 
 ---
 
 ## 関連ドキュメント
 
 - [SPECIFICATION.md](../SPECIFICATION.md) - 全体仕様
-- [property-definitions.md](./property-definitions.md) - プロパティ詳細
+- [property-definitions.md](./property-definitions.md) - プロパティ詳細（全DB）
 - [relations.md](./relations.md) - Relation設計
+- [insight-db-schema.md](./insight-db-schema.md) - Insight DB スキーマ
+- [job-db-schema.md](./job-db-schema.md) - Job DB スキーマ
+- [vpc-db-schema.md](./vpc-db-schema.md) - VPC DB スキーマ
+- [bmc-db-schema.md](./bmc-db-schema.md) - BMC DB スキーマ
 - [docs/architecture/jtbd-forces-framework.md](../docs/architecture/jtbd-forces-framework.md) - Forces理論解説
