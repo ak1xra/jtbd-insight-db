@@ -1,3 +1,7 @@
+# jtbd-insight-db
+
+JTBDに基づき、顧客の「面倒」「進みたい未来」「採用する理由」を構造化して蓄積するためのインサイトDB。
+
 # insight DB
 
 JTBD（Jobs to be Done）と Forces of Progress に沿って顧客インサイトを Notion 上で管理し、VPC / BMC へ接続しやすい形にするための **設計ドキュメント一式** です。
